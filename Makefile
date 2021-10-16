@@ -59,6 +59,13 @@ compose-start:
 					--project-name $(PROJECT) \
 						start
 
+compose-restart:
+	@$(DOCKER_COMPOSE) \
+		--file deployments/docker-compose/docker-compose.yml \
+				--project-directory . \
+					--project-name $(PROJECT) \
+						restart
+
 compose-stop:
 	@$(DOCKER_COMPOSE) \
 		--file deployments/docker-compose/docker-compose.yml \

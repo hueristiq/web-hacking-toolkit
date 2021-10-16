@@ -12,6 +12,7 @@ WORKDIR ${HOME}
 RUN apt-get update && \
 	apt-get upgrade -y && \
 	apt-get install -y --no-install-recommends \
+		xauth \
 		apt-utils \
 		tzdata \
 		build-essential \
@@ -34,7 +35,8 @@ RUN apt-get update && \
 		tree \
 		jq \
 		libpcap-dev \
-		default-jre 
+		default-jre \
+		firefox
 
 RUN ln -fs /usr/share/zoneinfo/Africa/Nairobi /etc/localtime && \
 		dpkg-reconfigure --frontend noninteractive tzdata

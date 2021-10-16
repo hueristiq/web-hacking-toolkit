@@ -4,6 +4,7 @@
 
 | Interface | Name | Descripton |
 | :-------: | :--- | :--------- |
+| GUI | [FireFox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |
 | GUI | [BurpSuitePro](https://portswigger.net/burp) | the BurpSuite Project |
 | CLI | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 | CLI | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
@@ -16,6 +17,8 @@
 | CLI | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
 | CLI | [naabu](https://github.com/projectdiscovery/naabu) | A fast port scanner written in go with focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests |
 | CLI | [nmap](https://github.com/nmap/nmap) | Nmap - the Network Mapper. Github mirror of official SVN repository. |
+| CLI | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
+| CLI | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
 
 ## GUI and Containers
 
