@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+java -jar ${HOME}/tools/burp_suite_pro_v2021.8.4/burploader-old.jar

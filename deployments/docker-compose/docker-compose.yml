@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+    web-hacking-toolkit:
+        build:
+            context: ./
+            dockerfile: deployments/docker/Dockerfile
+        image: signedsecurity/web-hacking-toolkit
+        container_name: web-hacking-toolkit
+        hostname: web-hacking-toolkit
+        stdin_open: true
+        ports:
+            - "22:22"
+        volumes:
+            - ./data:/root/data
+        restart: unless-stopped

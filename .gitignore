@@ -1,0 +1,13 @@
+# Data
+
+data/**/*
+!data/.gitkeep
+
+# Notes
+
+notes.txt
+
+# Configuration
+
+install/dotfiles/.config
+install/files/**/*
