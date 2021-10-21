@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-java -javaagent:${HOME}/tools/burp_suite_pro_v2021.8.4/BurpSuiteLoader_v2021.8.4.jar -noverify -jar ${HOME}/tools/burp_suite_pro_v2021.8.4/burpsuite_pro_v2021.8.4.jar

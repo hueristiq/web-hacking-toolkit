@@ -13,20 +13,6 @@ git_clone() {
 	fi
 }
 
-# {{ SSH
-
-echo -e " + ssh"
-
-if [ ! -x "$(command -v ssh)" ]
-then
-	apt -y -qq install openssh-server &> /dev/null
-fi
-
-sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-# }}
 # {{ zsh
 
 echo -e " + zsh"
@@ -77,232 +63,232 @@ ${directory}/tpm/bin/install_plugins &> /dev/null
 # }}
 # {{ vim
 
-echo -e " + vim"
+# echo -e " + vim"
 
-[ ! -x "$(command -v vim)" ] && {
-	apt -y -qq install vim &> /dev/null
-}
+# [ ! -x "$(command -v vim)" ] && {
+# 	apt -y -qq install vim &> /dev/null
+# }
 
-directory="${HOME}/.vim"
-[ ! -d ${directory}/colors ] && mkdir -p ${directory}/colors
-[ ! -d ${directory}/bundle ] && mkdir -p ${directory}/bundle
-[ ! -d ${directory}/autoload ] && mkdir -p ${directory}/autoload
+# directory="${HOME}/.vim"
+# [ ! -d ${directory}/colors ] && mkdir -p ${directory}/colors
+# [ ! -d ${directory}/bundle ] && mkdir -p ${directory}/bundle
+# [ ! -d ${directory}/autoload ] && mkdir -p ${directory}/autoload
 
-[ -e "${directory}/autoload/pathogen.vim" ] && rm -rf ${directory}/autoload/pathogen.vim
-curl -sL https://tpo.pe/pathogen.vim -o ${directory}/autoload/pathogen.vim
+# [ -e "${directory}/autoload/pathogen.vim" ] && rm -rf ${directory}/autoload/pathogen.vim
+# curl -sL https://tpo.pe/pathogen.vim -o ${directory}/autoload/pathogen.vim
 
-[ -e "${directory}/autoload/onedark.vim" ] && {
-	rm -rf ${directory}/autoload/onedark.vim
-}
-curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/onedark.vim -o ${directory}/autoload/onedark.vim
+# [ -e "${directory}/autoload/onedark.vim" ] && {
+# 	rm -rf ${directory}/autoload/onedark.vim
+# }
+# curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/onedark.vim -o ${directory}/autoload/onedark.vim
 
-[ -e "${directory}/colors/onedark.vim" ] && {
-	rm -rf ${directory}/colors/onedark.vim
-}
-curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim -o ${directory}/colors/onedark.vim
+# [ -e "${directory}/colors/onedark.vim" ] && {
+# 	rm -rf ${directory}/colors/onedark.vim
+# }
+# curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim -o ${directory}/colors/onedark.vim
 
-[ ! -e "${directory}/autoload/airline/themes" ] && {
-	mkdir -p ${directory}/autoload/airline/themes
-}
-[ -e "${directory}/autoload/airline/themes/onedark.vim" ] && {
-	rm -rf ${directory}/autoload/airline/themes/onedark.vim
-}
-curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/airline/themes/onedark.vim -o ${directory}/autoload/airline/themes/onedark.vim
+# [ ! -e "${directory}/autoload/airline/themes" ] && {
+# 	mkdir -p ${directory}/autoload/airline/themes
+# }
+# [ -e "${directory}/autoload/airline/themes/onedark.vim" ] && {
+# 	rm -rf ${directory}/autoload/airline/themes/onedark.vim
+# }
+# curl -sL https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/airline/themes/onedark.vim -o ${directory}/autoload/airline/themes/onedark.vim
 
-git_clone "https://github.com/preservim/nerdtree.git" "${directory}/bundle/nerdtree"
-git_clone "https://github.com/ryanoasis/vim-devicons.git" "${directory}/bundle/vim-devicons"
-git_clone "https://github.com/vim-airline/vim-airline.git" "${directory}/bundle/vim-airline"
-git_clone "https://github.com/airblade/vim-gitgutter.git" "${directory}/bundle/vim-gitgutter"
-git_clone "https://github.com/Xuyuanp/nerdtree-git-plugin.git" "${directory}/bundle/nerdtree-git-plugin"
-git_clone "https://github.com/tpope/vim-fugitive.git" "${directory}/bundle/vim-fugitive"
+# git_clone "https://github.com/preservim/nerdtree.git" "${directory}/bundle/nerdtree"
+# git_clone "https://github.com/ryanoasis/vim-devicons.git" "${directory}/bundle/vim-devicons"
+# git_clone "https://github.com/vim-airline/vim-airline.git" "${directory}/bundle/vim-airline"
+# git_clone "https://github.com/airblade/vim-gitgutter.git" "${directory}/bundle/vim-gitgutter"
+# git_clone "https://github.com/Xuyuanp/nerdtree-git-plugin.git" "${directory}/bundle/nerdtree-git-plugin"
+# git_clone "https://github.com/tpope/vim-fugitive.git" "${directory}/bundle/vim-fugitive"
 
-cp -f ${script_location}/dotfiles/.vimrc ${HOME}/.vim/vimrc
+# cp -f ${script_location}/dotfiles/.vimrc ${HOME}/.vim/vimrc
 
 # }}
 # {{ node
 
-echo -e " + node"
+# echo -e " + node"
 
-[ ! -x "$(command -v nvm)" ] && {
-	curl -sSL https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash - &> /dev/null
+# [ ! -x "$(command -v nvm)" ] && {
+# 	curl -sSL https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash - &> /dev/null
 	
 
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# 	export NVM_DIR="$HOME/.nvm"
+# 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-	source ${HOME}/.bashrc
+# 	source ${HOME}/.bashrc
 
-	nvm install node &> /dev/null
-}
+# 	nvm install node &> /dev/null
+# }
 
 # }}
 # {{ golang
 
-echo -e " + golang"
+# echo -e " + golang"
 
-[ ! -x "$(command -v go)" ] && {
-	version=1.17.1
+# [ ! -x "$(command -v go)" ] && {
+# 	version=1.17.1
 
-	wget --quiet https://golang.org/dl/go${version}.linux-amd64.tar.gz -O /tmp/go${version}.linux-amd64.tar.gz &> /dev/null
+# 	wget --quiet https://golang.org/dl/go${version}.linux-amd64.tar.gz -O /tmp/go${version}.linux-amd64.tar.gz &> /dev/null
 
-	tar -xzf /tmp/go${version}.linux-amd64.tar.gz -C /usr/local
+# 	tar -xzf /tmp/go${version}.linux-amd64.tar.gz -C /usr/local
 
-	(grep -q "export PATH=\$PATH:/usr/local/go/bin" ~/.profile) || {
-		export PATH=$PATH:/usr/local/go/bin
-		echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
-		source ~/.profile
-	}
-}
+# 	(grep -q "export PATH=\$PATH:/usr/local/go/bin" ~/.profile) || {
+# 		export PATH=$PATH:/usr/local/go/bin
+# 		echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+# 		source ~/.profile
+# 	}
+# }
 
 # }}
 
-tools="${HOME}/tools"; [ ! -d ${tools} ] && mkdir -p ${tools};
+# tools="${HOME}/tools"; [ ! -d ${tools} ] && mkdir -p ${tools};
 
 # {{ anew
 
-echo -e " + anew"
+# echo -e " + anew"
 
-export GOPATH=${tools}/anew
-go install github.com/tomnomnom/anew@latest &> /dev/null
-ln -sf ${tools}/anew/bin/anew /usr/local/bin/anew
+# export GOPATH=${tools}/anew
+# go install github.com/tomnomnom/anew@latest &> /dev/null
+# ln -sf ${tools}/anew/bin/anew /usr/local/bin/anew
 
 # }}
 # {{ wuzz
 
-echo -e " + wuzz"
+# echo -e " + wuzz"
 
-export GOPATH=${tools}/wuzz
-go install github.com/asciimoo/wuzz@latest &> /dev/null
-ln -sf ${tools}/wuzz/bin/wuzz /usr/local/bin/wuzz
+# export GOPATH=${tools}/wuzz
+# go install github.com/asciimoo/wuzz@latest &> /dev/null
+# ln -sf ${tools}/wuzz/bin/wuzz /usr/local/bin/wuzz
 
 # }}
 # {{ amass
 
-echo -e " + amass"
+# echo -e " + amass"
 
-export GOPATH=${tools}/amass
-go install github.com/OWASP/Amass/v3/...@latest &> /dev/null
-ln -sf ${tools}/amass/bin/amass /usr/local/bin/amass
+# export GOPATH=${tools}/amass
+# go install github.com/OWASP/Amass/v3/...@latest &> /dev/null
+# ln -sf ${tools}/amass/bin/amass /usr/local/bin/amass
 
 # }}
 # {{ subfinder
 
-echo -e " + subfinder"
+# echo -e " + subfinder"
 
-export GOPATH=${tools}/subfinder
-go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest &> /dev/null
-ln -sf ${tools}/subfinder/bin/subfinder /usr/local/bin/subfinder
+# export GOPATH=${tools}/subfinder
+# go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest &> /dev/null
+# ln -sf ${tools}/subfinder/bin/subfinder /usr/local/bin/subfinder
 
-cp -rf ${script_location}/dotfiles/.config/subfinder ${HOME}/.config/subfinder
+# cp -rf ${script_location}/dotfiles/.config/subfinder ${HOME}/.config/subfinder
 
 # }}
 # {{ findomain
 
-echo -e " + findomain"
+# echo -e " + findomain"
 
-file="${tools}/findomain"; [ -e ${file} ] && rm -rf ${file};
-curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o ${tools}/findomain
-chmod u+x ${tools}/findomain
-ln -sf ${tools}/findomain /usr/local/bin/findomain
+# file="${tools}/findomain"; [ -e ${file} ] && rm -rf ${file};
+# curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o ${tools}/findomain
+# chmod u+x ${tools}/findomain
+# ln -sf ${tools}/findomain /usr/local/bin/findomain
 
 # }}
 # {{ sigsubfind3r
 
-echo -e " + sigsubfind3r"
+# echo -e " + sigsubfind3r"
 
-export GOPATH=${tools}/sigsubfind3r
-go install github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest &> /dev/null
-ln -sf ${tools}/sigsubfind3r/bin/sigsubfind3r /usr/local/bin/sigsubfind3r
+# export GOPATH=${tools}/sigsubfind3r
+# go install github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest &> /dev/null
+# ln -sf ${tools}/sigsubfind3r/bin/sigsubfind3r /usr/local/bin/sigsubfind3r
 
-cp -rf ${script_location}/dotfiles/.config/sigsubfind3r ${HOME}/.config/sigsubfind3r
+# cp -rf ${script_location}/dotfiles/.config/sigsubfind3r ${HOME}/.config/sigsubfind3r
 
 # }}
 # {{ sigurlfind3r
 
-echo -e " + sigurlfind3r"
+# echo -e " + sigurlfind3r"
 
-export GOPATH=${tools}/sigurlfind3r
-go install github.com/signedsecurity/sigurlfind3r/cmd/sigurlfind3r@latest &> /dev/null
-ln -sf ${tools}/sigurlfind3r/bin/sigurlfind3r /usr/local/bin/sigurlfind3r
+# export GOPATH=${tools}/sigurlfind3r
+# go install github.com/signedsecurity/sigurlfind3r/cmd/sigurlfind3r@latest &> /dev/null
+# ln -sf ${tools}/sigurlfind3r/bin/sigurlfind3r /usr/local/bin/sigurlfind3r
 
-cp -rf ${script_location}/dotfiles/.config/sigurlfind3r ${HOME}/.config/sigurlfind3r
+# cp -rf ${script_location}/dotfiles/.config/sigurlfind3r ${HOME}/.config/sigurlfind3r
 
 # }}
 # {{ subdomains.sh
 
-echo -e " + subdomains.sh"
+# echo -e " + subdomains.sh"
 
-file="${tools}/subdomains.sh"; [ -e ${file} ] && rm -rf ${file};
-curl -sL https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/subdomains.sh -o ${tools}/subdomains.sh
-chmod u+x ${tools}/subdomains.sh
-ln -sf ${tools}/subdomains.sh /usr/local/bin/subdomains.sh
+# file="${tools}/subdomains.sh"; [ -e ${file} ] && rm -rf ${file};
+# curl -sL https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/subdomains.sh -o ${tools}/subdomains.sh
+# chmod u+x ${tools}/subdomains.sh
+# ln -sf ${tools}/subdomains.sh /usr/local/bin/subdomains.sh
 
 # }}
 # {{ dnsx
 
-echo -e " + dnsx"
+# echo -e " + dnsx"
 
-export GOPATH=${tools}/dnsx
-go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest &> /dev/null
-ln -sf ${tools}/dnsx/bin/dnsx /usr/local/bin/dnsx
+# export GOPATH=${tools}/dnsx
+# go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest &> /dev/null
+# ln -sf ${tools}/dnsx/bin/dnsx /usr/local/bin/dnsx
 
 # }}
 # {{ httpx
 
-echo -e " + httpx"
+# echo -e " + httpx"
 
-export GOPATH=${tools}/httpx
-go install github.com/projectdiscovery/httpx/cmd/httpx@latest &> /dev/null
-ln -sf ${tools}/httpx/bin/httpx /usr/local/bin/httpx
+# export GOPATH=${tools}/httpx
+# go install github.com/projectdiscovery/httpx/cmd/httpx@latest &> /dev/null
+# ln -sf ${tools}/httpx/bin/httpx /usr/local/bin/httpx
 
 # }}
 # {{ nuclei
 
-echo -e " + nuclei"
+# echo -e " + nuclei"
 
-export GOPATH=${tools}/nuclei
-go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &> /dev/null
-ln -sf ${tools}/nuclei/bin/nuclei /usr/local/bin/nuclei
+# export GOPATH=${tools}/nuclei
+# go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &> /dev/null
+# ln -sf ${tools}/nuclei/bin/nuclei /usr/local/bin/nuclei
 
 # }}
 # {{ naabu
 
-echo -e " + naabu"
+# echo -e " + naabu"
 
-export GOPATH=${tools}/naabu
-go install github.com/projectdiscovery/naabu/cmd/naabu@latest &> /dev/null
-ln -sf ${tools}/naabu/bin/naabu /usr/local/bin/naabu
+# export GOPATH=${tools}/naabu
+# go install github.com/projectdiscovery/naabu/cmd/naabu@latest &> /dev/null
+# ln -sf ${tools}/naabu/bin/naabu /usr/local/bin/naabu
 
 # }}
 # {{ ffuf
 
-echo -e " + ffuf"
+# echo -e " + ffuf"
 
-export GOPATH=${tools}/ffuf
-go install github.com/ffuf/ffuf@latest&> /dev/null
-ln -sf ${tools}/ffuf/bin/ffuf /usr/local/bin/ffuf
+# export GOPATH=${tools}/ffuf
+# go install github.com/ffuf/ffuf@latest&> /dev/null
+# ln -sf ${tools}/ffuf/bin/ffuf /usr/local/bin/ffuf
 
 # }}
 # {{ burp
 
-echo -e " + burp"
+# echo -e " + burp"
 
-unzip -P 311138 ${script_location}/files/burp_suite_pro_v2021.8.4.zip -d ${tools}/burp_suite_pro_v2021.8.4 &> /dev/null
+# unzip -P 311138 ${script_location}/files/burp_suite_pro_v2021.8.4.zip -d ${tools}/burp_suite_pro_v2021.8.4 &> /dev/null
 
 # }}
 # {{ WORDLISTS
 
-wordlists="${HOME}/wordlists"; [ ! -d ${wordlists} ] && mkdir -p ${wordlists}
+# wordlists="${HOME}/wordlists"; [ ! -d ${wordlists} ] && mkdir -p ${wordlists}
 
-echo -e " + seclists"
+# echo -e " + seclists"
 
-git_clone "https://github.com/danielmiessler/SecLists.git" "${wordlists}/seclists"
+# git_clone "https://github.com/danielmiessler/SecLists.git" "${wordlists}/seclists"
 
-echo -e " + jhaddix"
+# echo -e " + jhaddix"
 
-jhaddix="${wordlists}/jhaddix"; [ ! -d ${jhaddix} ] && mkdir -p ${jhaddix}
+# jhaddix="${wordlists}/jhaddix"; [ ! -d ${jhaddix} ] && mkdir -p ${jhaddix}
 
-curl -sL https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt -o ${jhaddix}/content_discovery_all.txt
+# curl -sL https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f4d10/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt -o ${jhaddix}/content_discovery_all.txt
 
 # }}

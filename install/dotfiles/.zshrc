@@ -102,14 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -d "${HOME}/.zsh/functions" ]
-then
-	for function in ${HOME}/.zsh/functions/*
-	do
-		source ${function}
-	done
-fi
-
 export GOPRIVATE="github.com"
 
 if [ -d "$HOME/.nvm" ]; then

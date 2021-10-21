@@ -4,7 +4,7 @@ services:
     web-hacking-toolkit:
         build:
             context: ./
-            dockerfile: deployments/docker/Dockerfile
+            dockerfile: Dockerfile
         image: signedsecurity/web-hacking-toolkit
         container_name: web-hacking-toolkit
         hostname: web-hacking-toolkit

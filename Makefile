@@ -3,6 +3,7 @@ SHELL = /bin/bash
 .DEFAULT_GOAL = help
 
 PROJECT := web-hacking-toolkit
+DOCKER ?= docker
 DOCKER_COMPOSE ?= docker-compose
 
 help:
@@ -23,6 +24,12 @@ help:
 	@echo "                                      images, and volumes."
 	@echo " 6. make compose-attach-shell ....... attach a shell."
 	@echo ""
+
+build:
+	@$(DOCKER) build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
+
+push:
+	@$(DOCKER) push signedsecurity/web-hacking-toolkit:latest
 
 compose-build:
 	@$(DOCKER_COMPOSE) \

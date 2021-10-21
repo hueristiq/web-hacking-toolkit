@@ -6,8 +6,3 @@ data/**/*
 # Notes
 
 notes.txt
-
-# Configuration
-
-install/dotfiles/.config
-install/files/**/*
