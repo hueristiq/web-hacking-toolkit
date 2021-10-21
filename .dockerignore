@@ -1,6 +1,15 @@
-# Deployments
+# Git Stuff
 
-deployments
+.git
+.gitignore
+
+# Github Stuff
+
+.github
+
+# Docker stuff
+
+.dockerignore
 
 # Notes
 
@@ -10,12 +19,5 @@ notes.txt
 
 data
 
-# Git Stuff
 
-.git
-.gitignore
-
-# Github Stuff
-
-.github
 

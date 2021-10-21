@@ -37,7 +37,7 @@ jobs:
                 uses: docker/build-push-action@v2
                 with:
                     context: ./ 
-                    file: ./deployments/docker/Dockerfile
+                    file: ./Dockerfile
                     builder: ${{ steps.buildx.outputs.name }}
                     push: true
                     tags: signedsecurity/web-hacking-toolkit:latest
