@@ -1,6 +1,6 @@
 FROM debian:latest
 
-LABEL maintainer="Alex Munene (@enenumxela)"
+LABEL maintainer="Alex Munene"
 
 ARG HOME=/root
 ENV HOME ${HOME}
@@ -42,7 +42,9 @@ RUN apt-get update && \
 RUN ln -fs /usr/share/zoneinfo/Africa/Nairobi /etc/localtime && \
 		dpkg-reconfigure --frontend noninteractive tzdata
 
-COPY install /tmp/install
+# COPY scripts /tmp/scripts
+
+COPY scripts/install /tmp/install
 
 # RUN chmod a+x /tmp/install/*.bash && \
 # 		for i in /tmp/install/*.bash; do echo $i && $i; done
@@ -62,6 +64,6 @@ RUN for script in $(find /tmp/install -maxdepth 1 -type f -print); \
 # RUN chmod a+x /tmp/install_dev/*.bash && \
 # 		for i in /tmp/install_dev/*.bash; do echo $i && $i; done
 
-COPY scripts ${HOME}/scripts
+COPY scripts/bin ${HOME}/scripts
 
 RUN chmod a+x ${HOME}/scripts/*
