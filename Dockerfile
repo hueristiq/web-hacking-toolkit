@@ -42,12 +42,7 @@ RUN apt-get update && \
 RUN ln -fs /usr/share/zoneinfo/Africa/Nairobi /etc/localtime && \
 		dpkg-reconfigure --frontend noninteractive tzdata
 
-# COPY scripts /tmp/scripts
-
 COPY scripts/install /tmp/install
-
-# RUN chmod a+x /tmp/install/*.bash && \
-# 		for i in /tmp/install/*.bash; do echo $i && $i; done
 
 RUN for script in $(find /tmp/install -maxdepth 1 -type f -print); \
 	do \

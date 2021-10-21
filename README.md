@@ -1,9 +1,7 @@
 # Web Hacking ToolKit
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/signedsecurity/web-hacking-toolkit/Docker%20Build)](https://github.com/signedsecurity/web-hacking-toolkit/actions)
-[![Docker Build Badge](https://img.shields.io/docker/cloud/build/signedsecurity/web-hacking-toolkit)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
-[![Docker Automated Badge](https://img.shields.io/docker/cloud/automated/signedsecurity/web-hacking-toolkit)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
-[![Docker Image Size Badge](https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/signedsecurity/web-hacking-toolkit/🎉%20CI%20to%20Docker%20Hub)](https://github.com/signedsecurity/web-hacking-toolkit/actions)
+[![Docker Image Size Badge](https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
 [![Docker Pulls Badge](https://img.shields.io/docker/pulls/signedsecurity/web-hacking-toolkit)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
 [![PRs Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](http://makeapullrequest.com)
 
@@ -94,6 +92,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | CLI | [nmap](https://github.com/nmap/nmap) | Nmap - the Network Mapper. Github mirror of official SVN repository. |
 | CLI | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
 | CLI | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
+| CLI | [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
 | CLI | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
 | CLI | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 ### Wordlists

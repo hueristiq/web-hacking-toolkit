@@ -1,7 +1,6 @@
 # Data
 
-data/**/*
-!data/.gitkeep
+data
 
 # Notes
 
