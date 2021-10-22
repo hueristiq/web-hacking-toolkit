@@ -24,18 +24,17 @@ A multiplatform web hacking toolkit Docker image.
 
 ### Docker
 
-You can pull the Docker image from Docker Hub as below.
+Pull the image from Docker Hub:
 
 ```bash
 docker pull signedsecurity/web-hacking-toolkit
 ```
 
-or:
+Run a container and attach a shell:
 
 ```bash
-docker run -it signedsecurity/web-hacking-toolkit /bin/bash
+docker run -it signedsecurity/web-hacking-toolkit /usr/bin/zsh
 ```
-
 ### Docker Compose
 
 Docker-Compose can also be used.
@@ -56,12 +55,32 @@ services:
         restart: unless-stopped
 ```
 
+Build and run container:
+
+```bash
+docker-compose up
+```
+
+Attach shell:
+
+```bash
+docker-compose exec web-hacking-toolkit /usr/bin/zsh
+```
+
 ### Build from Source
+
+Clone this repository and build the image:
 
 ```bash
 git clone https://github.com/signedsecurity/web-hacking-toolkit.git && \
 cd web-hacking-toolkit && \
 make build
+```
+
+Run a container and attach a shell:
+
+```bash
+docker run -it signedsecurity/web-hacking-toolkit /usr/bin/zsh
 ```
 
 ## GUI Support
