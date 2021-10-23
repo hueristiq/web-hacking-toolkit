@@ -1,0 +1,20 @@
+Package: *
+Pin: release a=stable
+Pin-Priority: 1000
+
+# The following is if youare also using unstable and/or testing repo
+#Package: *
+#Pin: release a=testing
+#Pin-Priority: 950
+
+#Package: *
+#Pin: release a=unstable
+#Pin-Priority: 900
+
+Package: *
+Pin: release n=kali
+Pin-Priority: 850
+
+Package: *
+Pin: release n=kali-bleeding-edge
+Pin-Priority: 800

@@ -9,7 +9,19 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR ${HOME}
 
+COPY scripts/install/otherfiles/web-hacking-toolkit.pref /etc/apt/preferences.d/web-hacking-toolkit.pref
+
 RUN apt-get update && \
+	apt-get upgrade -y && \
+	apt-get full-upgrade -y && \
+	apt-get install -y --no-install-recommends \
+		ca-certificates \
+		gnupg \
+		wget && \
+	echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /etc/apt/sources.list.d/kali.list && \
+	wget 'https://archive.kali.org/archive-key.asc' && \
+	apt-key add archive-key.asc && \
+	apt-get update && \
 	apt-get upgrade -y && \
 	apt-get install -y --no-install-recommends \
 		xauth \
@@ -18,7 +30,6 @@ RUN apt-get update && \
 		build-essential \
 		gcc \
 		iputils-ping \
-		wget \
 		git \
 		vim \
 		tar \
@@ -37,14 +48,16 @@ RUN apt-get update && \
 		tree \
 		jq \
 		libpcap-dev \
-		default-jre 
+		default-jre \
+		burpsuite \
+		firefox-esr
 
 RUN ln -fs /usr/share/zoneinfo/Africa/Nairobi /etc/localtime && \
 		dpkg-reconfigure --frontend noninteractive tzdata
 
 COPY scripts/install /tmp/install
 
-RUN for script in $(find /tmp/install -maxdepth 1 -type f -print); \
+RUN for script in $(find /tmp/install -maxdepth 1 -type f -print | sort); \
 	do \
 		echo ${script} && \
 		chmod u+x ${script} && \

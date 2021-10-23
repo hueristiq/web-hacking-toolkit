@@ -2,6 +2,8 @@
 
 set -e
 
+echo -e " + ssh"
+
 if [ ! -x "$(command -v ssh)" ]
 then
 	apt -y -qq install openssh-server &> /dev/null
