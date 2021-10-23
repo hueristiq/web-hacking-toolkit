@@ -44,7 +44,7 @@ version: "3.9"
 services:
     web-hacking-toolkit:
         image: signedsecurity/web-hacking-toolkit:latest
-        container_name: web-hacking-toolkit
+        container_nA multi-platform web hacking toolkit Docker image with Graphical User Interface (GUI) support. ame: web-hacking-toolkit
         hostname: web-hacking-toolkit
         stdin_open: true
         ports:
