@@ -48,7 +48,7 @@ services:
         hostname: web-hacking-toolkit
         stdin_open: true
         ports:
-            - "22:22"
+            - "22:22" # exposed ufor GUI support sing SSH with X11 forwarding
         volumes:
             - ./data:/root/data
         restart: unless-stopped
