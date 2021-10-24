@@ -1,9 +1,40 @@
-# Web Hacking ToolKit
+<h1 align="center">Web Hacking ToolKit</h1>
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/signedsecurity/web-hacking-toolkit/🎉%20CI%20to%20Docker%20Hub)](https://github.com/signedsecurity/web-hacking-toolkit/actions)
-[![Docker Image Size Badge](https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
-[![Docker Pulls Badge](https://img.shields.io/docker/pulls/signedsecurity/web-hacking-toolkit)](https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/)
-[![PRs Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](http://makeapullrequest.com)
+<p align="center">
+	<a href="https://github.com/signedsecurity/web-hacking-toolkit/actions">
+		<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/signedsecurity/web-hacking-toolkit/🎉%20CI%20to%20Docker%20Hub">
+	</a>
+	<a href="https://github.com/signedsecurity/web-hacking-toolkit/issues?q=is:issue+is:open">
+		<img alt="GitHub Open Issues" src="https://img.shields.io/github/issues-raw/signedsecurity/web-hacking-toolkit.svg">
+	</a>
+	<a href="https://github.com/signedsecurity/web-hacking-toolkit/issues?q=is:issue+is:closed">
+		<img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed-raw/signedsecurity/web-hacking-toolkit.svg">
+	</a>
+	<a href="https://github.com/signedsecurity/web-hacking-toolkit/graphs/contributors">
+		<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/signedsecurity/web-hacking-toolkit">
+	</a>
+	<a href="https://github.com/signedsecurity/web-hacking-toolkit/blob/master/LICENSE">
+		<img alt="GitHub" src="https://img.shields.io/github/license/signedsecurity/web-hacking-toolkit">
+	</a>
+</p>
+
+<p align="center">
+	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
+		<img alt="Docker Automated build" src="https://img.shields.io/docker/automated/signedsecurity/web-hacking-toolkit">
+	</a>
+	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
+		<img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/signedsecurity/web-hacking-toolkit">
+	</a>
+	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
+		<img alt="Docker Starts" src="https://img.shields.io/docker/stars/signedsecurity/web-hacking-toolkit">
+	</a>
+	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
+		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest">
+	</a>
+	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
+		<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/signedsecurity/web-hacking-toolkit/latest">
+	</a>
+</p>
 
 A multi-platform web hacking toolkit Docker image with Graphical User Interface (GUI) support.
 
@@ -32,7 +63,7 @@ docker pull signedsecurity/web-hacking-toolkit
 Run a container and attach a shell:
 
 ```bash
-docker run -it signedsecurity/web-hacking-toolkit /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
 ```
 ### Docker Compose
 
@@ -48,7 +79,7 @@ services:
         hostname: web-hacking-toolkit
         stdin_open: true
         ports:
-            - "22:22" # exposed ufor GUI support sing SSH with X11 forwarding
+            - "22:22" # exposed for GUI support sing SSH with X11 forwarding
         volumes:
             - ./data:/root/data
         restart: unless-stopped
@@ -79,7 +110,7 @@ make build
 Run a container and attach a shell:
 
 ```bash
-docker run -it signedsecurity/web-hacking-toolkit /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
 ```
 
 ## GUI Support
