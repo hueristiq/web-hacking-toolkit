@@ -29,10 +29,10 @@
 		<img alt="Docker Starts" src="https://img.shields.io/docker/stars/signedsecurity/web-hacking-toolkit">
 	</a>
 	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest">
+		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/v1.2.0">
 	</a>
 	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/signedsecurity/web-hacking-toolkit/latest">
+		<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/signedsecurity/web-hacking-toolkit/v1.2.0">
 	</a>
 </p>
 
@@ -57,13 +57,13 @@ A multi-platform web hacking toolkit Docker image with Graphical User Interface 
 Pull the image from Docker Hub:
 
 ```bash
-docker pull signedsecurity/web-hacking-toolkit
+docker pull signedsecurity/web-hacking-toolkit:v1.2.0
 ```
 
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit:v1.2.0 /usr/bin/zsh
 ```
 ### Docker Compose
 
@@ -74,7 +74,7 @@ version: "3.9"
 
 services:
     web-hacking-toolkit:
-        image: signedsecurity/web-hacking-toolkit:latest
+        image: signedsecurity/web-hacking-toolkit
         container_name: web-hacking-toolkit
         hostname: web-hacking-toolkit
         stdin_open: true
