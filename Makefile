@@ -13,12 +13,12 @@ help:
 	@echo ""
 	@echo "*****************************************************************************"
 	@echo ""
-	@echo " 1. make build ................. create and start containers."
-	@echo " 2. make push .................. build or rebuild services"
+	@echo " 1. make build ................. build an image."
+	@echo " 2. make run ................... run a container and attach a shell"
 	@echo ""
 
 build:
 	@$(DOCKER) build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
 
-push:
-	@$(DOCKER) push signedsecurity/web-hacking-toolkit:latest
+run:
+	@$(DOCKER) run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh

@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
+wordlists="${HOME}/wordlists"
 
-git_clone() {
-	if [ -d ${2} ]
-	then
-		git -C ${2} pull &> /dev/null
-	else
-		git clone ${1} ${2} &> /dev/null
-	fi
-}
-
-wordlists="${HOME}/wordlists"; [ ! -d ${wordlists} ] && mkdir -p ${wordlists}
+mkdir -p ${wordlists}
 
 echo -e " + jhaddix"
 
@@ -21,4 +12,4 @@ curl -sL https://gist.githubusercontent.com/jhaddix/b80ea67d85c13206125806f0828f
 
 echo -e " + seclists"
 
-git_clone "https://github.com/danielmiessler/SecLists.git" "${wordlists}/seclists"
+git clone https://github.com/danielmiessler/SecLists.git ${wordlists}/seclists
