@@ -57,13 +57,13 @@ A multi-platform web hacking toolkit Docker image with Graphical User Interface 
 Pull the image from Docker Hub:
 
 ```bash
-docker pull signedsecurity/web-hacking-toolkit:v1.2.0
+docker pull signedsecurity/web-hacking-toolkit
 ```
 
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit:v1.2.0 /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
 ```
 ### Docker Compose
 
