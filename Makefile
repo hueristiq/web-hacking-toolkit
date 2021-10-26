@@ -21,4 +21,4 @@ build:
 	@$(DOCKER) build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
 
 run:
-	@$(DOCKER) run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
+	@$(DOCKER) run --rm -it --name web-hacking-toolkit2 signedsecurity/web-hacking-toolkit /usr/bin/zsh
