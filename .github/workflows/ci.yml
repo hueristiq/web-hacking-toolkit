@@ -44,7 +44,7 @@ jobs:
                     file: ./Dockerfile
                     builder: ${{ steps.buildx.outputs.name }}
                     push: true
-                    tags: signedsecurity/web-hacking-toolkit:${{ steps.vars.outputs.tag }},signedsecurity/web-hacking-toolkit:latest
+                    tags: signedsecurity/web-hacking-toolkit:latest,signedsecurity/web-hacking-toolkit:${{ steps.vars.outputs.tag }}
                     cache-from: type=local,src=/tmp/.buildx-cache
                     cache-to: type=local,dest=/tmp/.buildx-cache
             -
