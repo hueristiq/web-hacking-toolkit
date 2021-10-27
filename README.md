@@ -29,10 +29,7 @@
 		<img alt="Docker Starts" src="https://img.shields.io/docker/stars/signedsecurity/web-hacking-toolkit">
 	</a>
 	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/v1.2.0">
-	</a>
-	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/signedsecurity/web-hacking-toolkit/v1.2.0">
+		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest">
 	</a>
 </p>
 
