@@ -60,7 +60,7 @@ docker pull signedsecurity/web-hacking-toolkit
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /bin/bash
+docker run --rm -it --name web-hacking-toolkit -p 22:22 --shm-size="2g" signedsecurity/web-hacking-toolkit /bin/bash
 ```
 ### Docker Compose
 
@@ -75,6 +75,7 @@ services:
         container_name: web-hacking-toolkit
         hostname: web-hacking-toolkit
         stdin_open: true
+        shm_size: 2gb
         ports:
             - "22:22" # exposed for GUI support sing SSH with X11 forwarding
         volumes:
@@ -107,7 +108,7 @@ make build
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /bin/bash
+docker run --rm -it --name web-hacking-toolkit -p 22:22 --shm-size="2g" signedsecurity/web-hacking-toolkit /bin/bash
 ```
 
 ## GUI Support

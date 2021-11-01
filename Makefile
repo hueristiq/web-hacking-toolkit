@@ -21,4 +21,4 @@ build:
 	@$(DOCKER) build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
 
 run:
-	@$(DOCKER) run --rm -it --name web-hacking-toolkit2 signedsecurity/web-hacking-toolkit /bin/bash
+	@$(DOCKER) run --rm -it --name web-hacking-toolkit2 -p 22:22 --shm-size="2g" signedsecurity/web-hacking-toolkit /bin/bash

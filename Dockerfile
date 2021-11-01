@@ -35,13 +35,15 @@ RUN apt-get update && \
 		xauth \
 		whois \
 		nodejs \
+		locales \
 		python3 \
 		burpsuite \
 		net-tools \
 		libpcap-dev \
 		python3-pip \
 		firefox-esr \
-		openssh-server && \
+		openssh-server \
+		libcanberra-gtk3-module && \
 	npm install -g yarn && \
 	for script in $(find /tmp/install -maxdepth 1 -type f -print | sort); \
 	do \
@@ -50,7 +52,10 @@ RUN apt-get update && \
 		${script}; \
 	done && \
 	rm -rf /tmp/install && \
-	chmod a+x ${HOME}/scripts/*
+	chmod a+x ${HOME}/scripts/* && \
+	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+
+ENV LANG en_US.utf8
 
 # ssh
 RUN sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config && \
