@@ -24,7 +24,6 @@ RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		jq \
 		git \
-		zsh \
 		tar \
 		vim \
 		npm \
@@ -58,13 +57,8 @@ RUN sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config && 
 	sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
-# zsh
-RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh && \
-	git clone https://github.com/zsh-users/zsh-autosuggestions.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
-	chsh -s /bin/zsh
-COPY dotfiles/.zshrc ${HOME}/.zshrc
-COPY dotfiles/.zprofile ${HOME}/.zprofile
+# bash
+COPY dotfiles/.bashrc ${HOME}/.bashrc
 
 # tmux
 COPY dotfiles/.tmux.conf ${HOME}/.tmux.conf

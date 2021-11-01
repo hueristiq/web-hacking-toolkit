@@ -60,7 +60,7 @@ docker pull signedsecurity/web-hacking-toolkit
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /bin/bash
 ```
 ### Docker Compose
 
@@ -91,7 +91,7 @@ docker-compose up
 Attach shell:
 
 ```bash
-docker-compose exec web-hacking-toolkit /usr/bin/zsh
+docker-compose exec web-hacking-toolkit /bin/bash
 ```
 
 ### Build from Source
@@ -107,7 +107,7 @@ make build
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /usr/bin/zsh
+docker run --rm -it --name web-hacking-toolkit signedsecurity/web-hacking-toolkit /bin/bash
 ```
 
 ## GUI Support
