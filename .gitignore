@@ -1,7 +1,12 @@
-# Data
-
-data
-
 # Notes
 
 notes.txt
+
+# Configurations
+
+configurations
+
+# Data
+
+/data/**/*
+!/data/.gitkeep

@@ -60,7 +60,16 @@ docker pull signedsecurity/web-hacking-toolkit
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit -p 22:22 --shm-size="2g" signedsecurity/web-hacking-toolkit /bin/bash
+docker run \
+	-it \
+	--rm \
+	--shm-size="2g" \
+	--name web-hacking-toolkit \
+	--hostname web-hacking-toolkit \
+	-p 22:22 \
+	-v $(pwd)/data:/root/data \
+	signedsecurity/web-hacking-toolkit \
+	/bin/bash
 ```
 ### Docker Compose
 
@@ -102,13 +111,13 @@ Clone this repository and build the image:
 ```bash
 git clone https://github.com/signedsecurity/web-hacking-toolkit.git && \
 cd web-hacking-toolkit && \
-make build
+make build-images
 ```
 
 Run a container and attach a shell:
 
 ```bash
-docker run --rm -it --name web-hacking-toolkit -p 22:22 --shm-size="2g" signedsecurity/web-hacking-toolkit /bin/bash
+make run
 ```
 
 ## GUI Support
