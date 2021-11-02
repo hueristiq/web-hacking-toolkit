@@ -85,11 +85,17 @@ echo -e " + tmux"
 
 mv ${CONFIGURATIONS}/.tmux.conf ${HOME}/.tmux.conf
 
-TMUX_PLUGINS="${HOME}/.tmux/plugins"; mkdir -p ${TMUX_PLUGINS}
+TMUX_PLUGINS="${HOME}/.tmux/plugins"
+
+mkdir -p ${TMUX_PLUGINS}
 
 git clone https://github.com/tmux-plugins/tpm.git ${TMUX_PLUGINS}/tpm
-chmod +x ${TMUX_PLUGINS}/tpm/bin/install_plugins
-${TMUX_PLUGINS}/tpm/bin/install_plugins
+
+if [ -f ${TMUX_PLUGINS}/tpm/bin/install_plugins ]
+then
+    chmod +x ${TMUX_PLUGINS}/tpm/bin/install_plugins
+    ${TMUX_PLUGINS}/tpm/bin/install_plugins
+fi
 
 # }}
 # {{ vim
