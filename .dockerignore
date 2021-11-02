@@ -11,14 +11,6 @@
 
 .dockerignore
 
-# Notes
-
-notes.txt
-
-# Readme
-
-README.md
-
 # Configurations
 
 configurations
@@ -30,3 +22,11 @@ data
 # License
 
 LICENSE
+
+# Notes
+
+notes.txt
+
+# Readme
+
+README.md
