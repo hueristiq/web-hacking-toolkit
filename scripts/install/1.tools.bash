@@ -5,10 +5,7 @@
 echo -e " + install essentials"
 
 apt-get install -y --no-install-recommends \
-    tar \
-    curl \
-    gnupg \
-    ca-certificates
+    gnupg
 
 # }}
 # {{ extract configuration
@@ -41,7 +38,6 @@ apt-get install -y --no-install-recommends \
     jq \
     git \
     vim \
-    npm \
     tmux \
     wget \
     nmap \
@@ -49,7 +45,6 @@ apt-get install -y --no-install-recommends \
     unzip \
     xauth \
     whois \
-    nodejs \
     locales \
     python3 \
     libxss1 \
@@ -59,8 +54,7 @@ apt-get install -y --no-install-recommends \
     python3-pip \
     firefox-esr \
     openssh-server \
-    libcanberra-gtk3-module && \
-npm install -g yarn && \
+    libcanberra-gtk3-module
 
 # }}
 # {{ ssh
@@ -120,23 +114,6 @@ git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git ${VIM_BUNDLE}/nerdt
 git clone https://github.com/tpope/vim-fugitive.git ${VIM_BUNDLE}/vim-fugitive
 
 mv ${CONFIGURATIONS}/.vimrc ${HOME}/.vim/vimrc
-
-# }}
-# {{ golang
-
-echo -e " + golang"
-
-version=1.17.2
-
-curl -sL https://golang.org/dl/go${version}.linux-amd64.tar.gz -o /tmp/go${version}.linux-amd64.tar.gz &> /dev/null
-
-tar -xzf /tmp/go${version}.linux-amd64.tar.gz -C /usr/local
-
-(grep -q "export PATH=\$PATH:/usr/local/go/bin" ~/.profile) || {
-    export PATH=$PATH:/usr/local/go/bin
-    echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
-    source ~/.profile
-}
 
 # }}
 
