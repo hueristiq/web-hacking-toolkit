@@ -1,35 +1,7 @@
 #!/usr/bin/env bash
 
-# {{ install essentials
-
-echo -e " + install essentials"
-
-apt-get install -y --no-install-recommends \
-    gnupg
-
-# }}
-# {{ extract configuration
-
-echo -e " + extract configuration"
-
 CONFIGURATIONS="/tmp/configurations"
 
-tar -xzf ${CONFIGURATIONS}.tar.gz -C /tmp
-
-# }}
-# {{ setup kali repository
-
-echo -e " + setup kali repository"
-
-echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /etc/apt/sources.list.d/kali.list
-curl -sL 'https://archive.kali.org/archive-key.asc' -o archive-key.asc
-apt-key add archive-key.asc
-rm -rf archive-key.asc
-mv ${CONFIGURATIONS}/apt/web-hacking-toolkit.pref /etc/apt/preferences.d/web-hacking-toolkit.pref
-apt-get update
-apt-get upgrade -y
-
-# }}
 # {{ essentials
 
 echo -e " + essentials"
