@@ -135,29 +135,30 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 ## Installed
 ### Tools
 
-| Interface | Name | Description |
-| :-------: | :--- | :---------- |
-| CLI | [Amass](https://github.com/OWASP/Amass) | In-depth Attack Surface Mapping and Asset Discovery |
-| CLI | [anew](https://github.com/tomnomnom/anew) | A tool for adding new lines to files, skipping duplicates |
-| GUI | [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition |
-| CLI | [curl](https://github.com/curl/curl) | A command line tool and library for transferring data with URL syntax, supporting HTTP, HTTPS, FTP, FTPS, GOPHER, TFTP, SCP, SFTP, SMB, TELNET, DICT, LDAP, LDAPS, MQTT, FILE, IMAP, SMTP, POP3, RTSP and RTMP. libcurl offers a myriad of powerful features |
-| CLI | [dnsx](https://github.com/projectdiscovery/dnsx) | dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers. |
-| CLI | [ffuf](https://github.com/ffuf/ffuf) | Fast web fuzzer written in Go |
-| CLI | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest and cross-platform subdomain enumerator, do not waste your time. |
-| GUI | [firefox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |
-| CLI | [html-tool](https://github.com/tomnomnom/hacks/tree/master/html-tool) | Take URLs or filenames for HTML documents on stdin and extract tag contents, attribute values, or comments |
-| CLI | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
-| CLI | [naabu](https://github.com/projectdiscovery/naabu) | A fast port scanner written in go with focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests |
-| CLI | [nmap](https://github.com/nmap/nmap) | Nmap - the Network Mapper. Github mirror of official SVN repository. |
-| CLI | [sigsubfind3r](https://github.com/signedsecurity/sigsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
-| CLI | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
-| CLI | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
-| CLI | [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
-| CLI | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
-| CLI | [tmux](https://github.com/tmux/tmux) | tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached |
-| CLI | [vim](https://www.vim.org/) | A highly configurable text editor built to make creating and changing any kind of text very efficient. |
-| CLI | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
-| CLI | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
+| Category  | Name | Description |
+| :-------- | :--- | :---------- |
+| Discovery/DOMAIN | [Amass](https://github.com/OWASP/Amass) | In-depth Attack Surface Mapping and Asset Discovery |
+| Utility/ANY | [anew](https://github.com/tomnomnom/anew) | A tool for adding new lines to files, skipping duplicates |
+| Army-Knife/PROXY | [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition. |
+| Utility/HTTP | [curl](https://github.com/curl/curl) | A command line tool and library for transferring data with URL syntax, supporting HTTP, HTTPS, FTP, FTPS, GOPHER, TFTP, SCP, SFTP, SMB, TELNET, DICT, LDAP, LDAPS, MQTT, FILE, IMAP, SMTP, POP3, RTSP and RTMP. libcurl offers a myriad of powerful features |
+| Discovery/DNS | [dnsx](https://github.com/projectdiscovery/dnsx) | dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers. |
+| Discovery/FUZZ | [ffuf](https://github.com/ffuf/ffuf) | Fast web fuzzer written in Go |
+| Discovery/DOMAIN | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
+| Browser | [firefox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |and cross-platform subdomain enumerator, do not waste your time. |
+| Misc | [html-tool](https://github.com/tomnomnom/hacks/tree/master/html-tool) | Take URLs or filenames for HTML documents on stdin and extract tag contents, attribute values, or comments |
+| Utility/HTTP | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
+| Discovery/PORT | [naabu](https://github.com/projectdiscovery/naabu) | A fast port scanner written in go with focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests |
+| Discovery/PORT | [nmap](https://github.com/nmap/nmap) | Nmap - the Network Mapper. Github mirror of official SVN repository. |
+| Army-Knife/SCAN | [nuclei](https://github.com/projectdiscovery/nuclei) | Nuclei is a fast tool for configurable targeted scanning based on templates offering massive extensibility and ease of use. |
+| Discovery/DOMAIN | [sigsubfind3r](https://github.com/signedsecurity/sigsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
+| Discovery/URL | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
+| Army-Knife/SCAN | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
+| Discovery/DOMAIN | [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
+| Discovery/DOMAIN | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
+| Utility/Terminal | [tmux](https://github.com/tmux/tmux) | tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached |
+| Utility/Editor | [vim](https://www.vim.org/) | A highly configurable text editor built to make creating and changing any kind of text very efficient. |
+| Discovery/Tech | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
+| Utility/HTTP | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
 ### Wordlists
 
