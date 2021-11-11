@@ -53,7 +53,7 @@ RUN echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /
 		python3-pip \
 		firefox-esr \
 		openssh-server \
-		build-essentials \
+		build-essential \
 		libcanberra-gtk3-module
 
 # setup go(golang)
