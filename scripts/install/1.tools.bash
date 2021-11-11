@@ -2,33 +2,6 @@
 
 CONFIGURATIONS="/tmp/configurations"
 
-# {{ essentials
-
-echo -e " + essentials"
-
-apt-get install -y --no-install-recommends \
-    jq \
-    git \
-    vim \
-    tmux \
-    wget \
-    nmap \
-    tree \
-    unzip \
-    xauth \
-    whois \
-    locales \
-    python3 \
-    libxss1 \
-    burpsuite \
-    net-tools \
-    libpcap-dev \
-    python3-pip \
-    firefox-esr \
-    openssh-server \
-    libcanberra-gtk3-module
-
-# }}
 # {{ ssh
 
 echo -e " + ssh"
@@ -205,6 +178,20 @@ echo -e " + naabu"
 go install github.com/projectdiscovery/naabu/cmd/naabu@latest
 
 # }}
+# {{ ps.sh
+
+echo -e " + ps.sh"
+
+file="/usr/local/bin/ps.sh"
+
+curl -sL https://raw.githubusercontent.com/enenumxela/ps.sh/main/ps.sh -o ${file}
+
+if [ -f ${file} ]
+then
+    chmod u+x ${file}
+fi
+
+# }}
 # {{ ffuf
 
 echo -e " + ffuf"
@@ -212,7 +199,7 @@ echo -e " + ffuf"
 go install github.com/ffuf/ffuf@latest
 
 # }}
-# {{ ffuf
+# {{ html-tool
 
 echo -e " + html-tool"
 
@@ -232,5 +219,12 @@ then
     yarn run link
     cd -
 fi
+
+# }}
+# {{ gowitness
+
+echo -e " + gowitness"
+
+go install github.com/sensepost/gowitness@latest
 
 # }}
