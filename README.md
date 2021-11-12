@@ -33,7 +33,7 @@
 	</a>
 </p>
 
-A multi-platform web hacking toolkit Docker image with Graphical User Interface (GUI) applicaions support.
+A multi-platform web hacking toolkit Docker image with Graphical User Interface (GUI) applications support.
 
 ## Resources
 
