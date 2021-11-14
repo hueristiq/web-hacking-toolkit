@@ -203,7 +203,7 @@ go install github.com/ffuf/ffuf@latest
 
 echo -e " + html-tool"
 
-go install github.com/tomnomnom/hacks/html-tool@latest
+go install github.cogithub.com/enenumxela/urlxm/tomnomnom/hacks/html-tool@latest
 
 # }}
 # {{ wappalyzer
@@ -226,5 +226,12 @@ fi
 echo -e " + gowitness"
 
 go install github.com/sensepost/gowitness@latest
+
+# }}
+# {{ urlx
+
+echo -e " + urlx"
+
+go install github.com/enenumxela/urlx/cmd/ulx@latest
 
 # }}

@@ -3,7 +3,7 @@ FROM debian:latest
 ARG HOME=/root
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV HOME "${HOME}"
+ENV HOME "$HOME"
 
 COPY configurations.tar.gz /tmp/configurations.tar.gz
 
@@ -68,27 +68,29 @@ RUN \
 	npm install -g yarn 
 
 ENV LANG en_US.utf8
-ENV GOROOT "/usr/local/go"
-ENV GOPATH "/root/go"
-ENV PATH "${PATH}:${GOROOT}/bin:${GOPATH}/bin"
+ENV GOPATH $HOME/go
+ENV GOROOT /usr/local/go
+ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 
 # scripts
-COPY scripts ${HOME}/scripts
-RUN for script in $(find ${HOME}/scripts/install -maxdepth 1 -type f -print | sort); \
+COPY scripts $HOME/scripts
+RUN \
+	for script in $(find ${HOME}/scripts/install -maxdepth 1 -type f -print | sort); \
 	do \
 		echo ${script} && \
 		chmod u+x ${script} && \
 		${script}; \
 	done && \
-	rm -rf ${HOME}/scripts/install && \
-	chmod a+x ${HOME}/scripts/*
+	rm -rf $HOME/scripts/install && \
+	chmod a+x $HOME/scripts/*
 
 # run clean up
-RUN for task in autoremove autoclean clean; \
+RUN \
+	for task in autoremove autoclean clean; \
 	do \
 		apt-get -y -qq ${task}; \
 	done && \
 	rm -rf /tmp/configurations* && \
 	rm -rf /var/lib/apt/lists/*
 
-WORKDIR ${HOME}
+WORKDIR $HOME
