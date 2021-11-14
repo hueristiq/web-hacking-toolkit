@@ -27,7 +27,7 @@ RUN \
 	curl -sL 'https://archive.kali.org/archive-key.asc' -o archive-key.asc && \
 	apt-key add archive-key.asc && \
 	rm -rf archive-key.asc && \
-	mv /tmp/configurations/apt/web-hacking-toolkit.pref /etc/apt/preferences.d/web-hacking-toolkit.pref && \
+	mv /tmp/configurations/apt/wht.pref /etc/apt/preferences.d/wht.pref && \
 	# up(date|grade)
 	apt-get update && \
 	apt-get upgrade -y --allow-downgrades && \
@@ -70,7 +70,7 @@ RUN \
 ENV LANG en_US.utf8
 ENV GOPATH $HOME/go
 ENV GOROOT /usr/local/go
-ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
+ENV PATH $PATH:/usr/local/go/bin:$HOME/go/bin
 
 # scripts
 COPY scripts $HOME/scripts
@@ -84,6 +84,8 @@ RUN \
 	rm -rf $HOME/scripts/install && \
 	chmod a+x $HOME/scripts/*
 
+ENV PATH $PATH:$HOME/scripts
+
 # run clean up
 RUN \
 	for task in autoremove autoclean clean; \
@@ -91,6 +93,9 @@ RUN \
 		apt-get -y -qq ${task}; \
 	done && \
 	rm -rf /tmp/configurations* && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* && \
+	go clean -cache && \
+	go clean -testcache && \
+	go clean -modcache
 
 WORKDIR $HOME

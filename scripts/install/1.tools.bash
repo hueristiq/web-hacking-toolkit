@@ -203,7 +203,7 @@ go install github.com/ffuf/ffuf@latest
 
 echo -e " + html-tool"
 
-go install github.cogithub.com/enenumxela/urlxm/tomnomnom/hacks/html-tool@latest
+go install github.com/tomnomnom/hacks/html-tool@latest
 
 # }}
 # {{ wappalyzer

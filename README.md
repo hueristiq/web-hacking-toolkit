@@ -111,7 +111,7 @@ Clone this repository and build the image:
 ```bash
 git clone https://github.com/signedsecurity/web-hacking-toolkit.git && \
 cd web-hacking-toolkit && \
-make build-images
+make build-image
 ```
 
 Run a container and attach a shell:
