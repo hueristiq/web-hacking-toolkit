@@ -3,8 +3,6 @@ FROM debian:latest
 ARG HOME=/root
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV HOME "$HOME"
-
 COPY configurations.tar.gz /tmp/configurations.tar.gz
 
 RUN \
@@ -19,6 +17,7 @@ RUN \
 		locales \
 		ca-certificates && \
 	rm -rf /var/lib/apt/lists/* && \
+	# install/generate locales
 	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
 	# extract configurations
 	tar -xzf /tmp/configurations.tar.gz -C /tmp && \
@@ -67,27 +66,24 @@ RUN \
 	# setup yarn
 	npm install -g yarn 
 
-ENV LANG en_US.utf8
-ENV GOPATH $HOME/go
-ENV GOROOT /usr/local/go
-ENV PATH $PATH:/usr/local/go/bin:$HOME/go/bin
-
-# scripts
 COPY scripts $HOME/scripts
+
+ENV HOME="/root" \
+	LANG="en_US.utf8" \
+	GOPATH="/root/go" \
+	GOROOT="/usr/local/go" \
+	PATH="$PATH:/usr/local/go/bin:root/go/bin:/root/scripts"
+
 RUN \
-	for script in $(find ${HOME}/scripts/install -maxdepth 1 -type f -print | sort); \
+	for script in $(find $HOME/scripts/install -maxdepth 1 -type f -print | sort); \
 	do \
 		echo ${script} && \
 		chmod u+x ${script} && \
 		${script}; \
 	done && \
 	rm -rf $HOME/scripts/install && \
-	chmod a+x $HOME/scripts/*
-
-ENV PATH $PATH:$HOME/scripts
-
-# run clean up
-RUN \
+	chmod a+x $HOME/scripts/* && \
+	# clean up
 	for task in autoremove autoclean clean; \
 	do \
 		apt-get -y -qq ${task}; \

@@ -84,7 +84,7 @@ services:
         container_name: web-hacking-toolkit
         hostname: web-hacking-toolkit
         stdin_open: true
-        shm_size: 2gb
+        shm_size: 2gb # increase shared memory size to prevent firefox from crashing
         ports:
             - "22:22" # exposed for GUI support sing SSH with X11 forwarding
         volumes:
