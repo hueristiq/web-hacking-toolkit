@@ -1,6 +1,5 @@
 SHELL = /bin/bash
 
-DOCKER ?= docker
 PROJECT := web-hacking-toolkit
 
 .PHONY : help compress-configurations extract-configurations build-image build run
@@ -23,18 +22,18 @@ help:
 	@echo ""
 
 compress-configurations:
-	@tar -czf configurations.tar.gz ./configurations
+	tar -czf configurations.tar.gz ./configurations
 
 extract-configurations:
-	@tar -xzf configurations.tar.gz -C ./
+	tar -xzf configurations.tar.gz -C ./
 
 build-image:
-	$(DOCKER) build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
+	docker build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
 
 build: compress-configurations build-image
 
 run:
-	@$(DOCKER) run \
+	@docker run \
 		-it \
 		--rm \
 		--shm-size="2g" \
