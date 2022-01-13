@@ -72,7 +72,7 @@ ENV HOME="/root" \
 	LANG="en_US.utf8" \
 	GOPATH="/root/go" \
 	GOROOT="/usr/local/go" \
-	PATH="$PATH:/usr/local/go/bin:root/go/bin:/root/scripts"
+	PATH="$PATH:/usr/local/go/bin:/root/go/bin:/root/scripts"
 
 RUN \
 	for script in $(find $HOME/scripts/install -maxdepth 1 -type f -print | sort); \
