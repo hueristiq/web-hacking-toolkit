@@ -47,6 +47,7 @@ RUN \
 		python3 \
 		libxss1 \
 		masscan \
+		whatweb \
 		burpsuite \
 		net-tools \
 		libpcap-dev \

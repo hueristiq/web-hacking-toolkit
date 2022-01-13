@@ -163,6 +163,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Utility/URL | [urlx](https://github.com/enenumxela/urlx) | A go(golang) utility for URLs parsing & pull out bits of the URLS. |
 | Utility/Editor | [vim](https://www.vim.org/) | A highly configurable text editor built to make creating and changing any kind of text very efficient. |
 | Discovery/Tech | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
+| Army-Knife/SCAN | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
 | Utility/HTTP | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
 ### Wordlists
