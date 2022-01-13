@@ -232,6 +232,13 @@ go install github.com/sensepost/gowitness@latest
 
 echo -e " + urlx"
 
-go install github.com/enenumxela/urlx/cmd/ulx@latest
+go install github.com/enenumxela/urlx/cmd/urlx@latest
+
+# }}
+# {{ hakrevdns
+
+echo -e " + hakrevdns"
+
+go install github.com/hakluke/hakrevdns@latest
 
 # }}

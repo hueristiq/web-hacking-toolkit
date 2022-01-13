@@ -147,6 +147,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Discovery/DOMAIN | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
 | Browser | [firefox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |and cross-platform subdomain enumerator, do not waste your time. |
 | Utility/SHOT | [gowitness](https://github.com/sensepost/gowitness) | mag gowitness - a golang, web screenshot utility using Chrome Headless |
+| Discovery/DNS | [hakrevdns](https://github.com/hakluke/hakrevdns) | Small, fast, simple tool for performing reverse DNS lookups en masse. |
 | Misc | [html-tool](https://github.com/tomnomnom/hacks/tree/master/html-tool) | Take URLs or filenames for HTML documents on stdin and extract tag contents, attribute values, or comments |
 | Utility/HTTP | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
 | Discovery/PORT | [masscan](https://github.com/robertdavidgraham/masscan) | TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes. |
