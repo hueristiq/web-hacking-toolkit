@@ -53,6 +53,7 @@ RUN \
 		libpcap-dev \
 		python3-pip \
 		firefox-esr \
+		libxml2-utils \
 		openssh-server \
 		build-essential \
 		libcanberra-gtk3-module && \
