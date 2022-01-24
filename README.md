@@ -142,8 +142,12 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Utility/ANY | [anew](https://github.com/tomnomnom/anew) | A tool for adding new lines to files, skipping duplicates |
 | Discovery/PARAM| [Arjun](https://github.com/s0md3v/Arjun) | HTTP parameter discovery suite. |
 | Army-Knife/PROXY | [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition. |
+| Scanner/RCE | [commix](https://github.com/commixproject/commix) | Automated All-in-One OS Command Injection Exploitation Tool. |
+| Scanner/CRLF | [crlfuzz](https://github.com/dwisiswant0/crlfuzz) | A fast tool to scan CRLF vulnerability written in Go |
 | Utility/HTTP | [curl](https://github.com/curl/curl) | A command line tool and library for transferring data with URL syntax, supporting HTTP, HTTPS, FTP, FTPS, GOPHER, TFTP, SCP, SFTP, SMB, TELNET, DICT, LDAP, LDAPS, MQTT, FILE, IMAP, SMTP, POP3, RTSP and RTMP. libcurl offers a myriad of powerful features |
+| Scanner/XSS | [dalfox](https://github.com/hahwul/dalfox) | waning_crescent_moonfox_face DalFox(Finder Of XSS) / Parameter Analysis and XSS Scanning tool based on golang |
 | Discovery/DNS | [dnsx](https://github.com/projectdiscovery/dnsx) | dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers. |
+| Scanner/LFI | [dotdotpwn](https://github.com/wireghoul/dotdotpwn) | DotDotPwn - The Directory Traversal Fuzzer |
 | Discovery/FUZZ | [ffuf](https://github.com/ffuf/ffuf) | Fast web fuzzer written in Go |
 | Discovery/DOMAIN | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
 | Browser | [firefox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |and cross-platform subdomain enumerator, do not waste your time. |
@@ -159,11 +163,13 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Discovery/DOMAIN | [sigsubfind3r](https://github.com/signedsecurity/sigsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
 | Discovery/URL | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
 | Army-Knife/SCAN | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
+| Scanner/SQLi | [sqlmap](https://github.com/sqlmapproject/sqlmap) | Automatic SQL injection and database takeover tool |
 | Discovery/DOMAIN | [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
 | Discovery/DOMAIN | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
 | Utility/URL | [urlx](https://github.com/enenumxela/urlx) | A go(golang) utility for URLs parsing & pull out bits of the URLS. |
 | Discovery/Tech | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
-| Army-Knife/SCAN | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
+| Discovery/WHOIS | whois | whois - client for the whois directory service |
+| Discovery/ALL | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
 | Utility/HTTP | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
 ### Wordlists
