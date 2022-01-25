@@ -37,7 +37,7 @@ run:
 		-it \
 		--rm \
 		--shm-size="2g" \
-		--name web-hacking-toolkit2 \
+		--name web-hacking-toolkit \
 		--hostname web-hacking-toolkit \
 		-p 22:22 \
 		-v $(pwd)/data:/root/data \
