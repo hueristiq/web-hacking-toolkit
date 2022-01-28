@@ -9,15 +9,15 @@ fi
 
 CONFIGURATIONS="/tmp/configurations"
 
-# {{ firefox
+# {{ firefox (Browser)
 
 echo -e " + firefox"
 
-apt-get install -y -qq firefox-esr libcanberra-gtk3-module 
+apt-get install -y -qq firefox-esr libcanberra-gtk3-module
 
-mv ${CONFIGURATIONS}/mozilla ${HOME}/.mozilla
+mv -f ${CONFIGURATIONS}/.mozilla ${HOME}/.mozilla
 
-# }} firefox
+# }} firefox (Browser)
 # {{ burpsuite
 
 echo -e " + burpsuite"
@@ -25,13 +25,6 @@ echo -e " + burpsuite"
 apt-get install -y -qq burpsuite
 
 # }} burpsuite
-# {{ jq
-
-echo -e " + jq"
-
-apt-get install -y -qq jq
-
-# }} jq
 # {{ whois
 
 echo -e " + whois"
@@ -39,41 +32,6 @@ echo -e " + whois"
 apt-get install -y -qq whois
 
 # }} whois
-# {{ whatweb
-
-echo -e " + whatweb"
-
-apt-get install -y -qq whatweb
-
-# }} whatweb
-# {{ anew
-
-echo -e " + anew"
-
-go install github.com/tomnomnom/anew@latest
-
-# }}
-# {{ wuzz
-
-echo -e " + wuzz"
-
-go install github.com/asciimoo/wuzz@latest
-
-# }}
-# {{ sigurlscann3r
-
-echo -e " + sigurlscann3r"
-
-go install github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
-
-# }}
-# {{ dnsx
-
-echo -e " + dnsx"
-
-go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-
-# }}
 # {{ httpx
 
 echo -e " + httpx"
@@ -81,36 +39,6 @@ echo -e " + httpx"
 go install github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 # }}
-# {{ nuclei
-
-echo -e " + nuclei"
-
-go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
-
-# }}
-
-# {{ html-tool
-
-echo -e " + html-tool"
-
-go install github.com/tomnomnom/hacks/html-tool@latest
-
-# }}
-
-# {{ urlx
-
-echo -e " + urlx"
-
-go install github.com/enenumxela/urlx/cmd/urlx@latest
-
-# }}
-# {{ hakrevdns
-
-echo -e " + hakrevdns"
-
-go install github.com/hakluke/hakrevdns@latest
-
-# }}
 
 
 
@@ -122,13 +50,15 @@ go install github.com/hakluke/hakrevdns@latest
 
 
 
-# {{ Reconnaissance
 
-echo -e " + Reconnaissance"
 
-# {{ Subdomain Enumeration
+# {{ Discovery
 
-echo -e " +     Subdomain Enumeration"
+echo -e " + Discovery"
+
+# {{ Domain
+
+echo -e " +     Domain"
 
 # {{ amass
 
@@ -180,23 +110,30 @@ fi
 
 # }} subdomains.sh
 
-# }} Subdomain Enumeration
-# {{ Screenshots
+# }} Domain
+# {{ DNS
 
-echo -e " +     Screenshots"
+echo -e " +     DNS"
 
-# {{ gowitness
+# {{ dnsx
 
-echo -e " +         gowitness"
+echo -e " +         dnsx"
 
-go install github.com/sensepost/gowitness@latest
+go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
-# }} gowitness
+# }} dnsx
+# {{ hakrevdns
 
-# }} Screenshots
-# {{ Port Scanning
+echo -e " +         hakrevdns"
 
-echo -e " +     Port Scanning"
+go install github.com/hakluke/hakrevdns@latest
+
+# }} hakrevdns
+
+# }} DNS
+# {{ PORT
+
+echo -e " +     PORT"
 
 # {{ nmap
 
@@ -237,11 +174,18 @@ fi
 
 # }} ps.sh
 
-# }} Port Scanning
+# }} PORT
 # {{ Technologies
 
 echo -e " +     Technologies"
 
+# {{ whatweb
+
+echo -e " +         whatweb"
+
+apt-get install -y -qq whatweb
+
+# }} whatweb
 # {{ wappalyzer
 
 echo -e " +         wappalyzer"
@@ -259,56 +203,67 @@ fi
 # }} wappalyzer
 
 # }} Technologies
-# {{ Content Discovery
+# }} URL
 
-echo -e " +     Content Discovery"
-
-# }} Links
-
-echo -e " +         Links"
+echo -e " +     URL"
 
 # {{ sigurlfind3r
 
-echo -e " +             sigurlfind3r"
+echo -e " +         sigurlfind3r"
 
 go install github.com/signedsecurity/sigurlfind3r/cmd/sigurlfind3r@latest
 
 # }} sigurlfind3r
 
-# }} Links
+# }} URL
 # }} Parameters
 
-echo -e " +         Parameters"
+echo -e " +     Parameters"
 
 # {{ arjun
 
-echo -e " +             arjun"
+echo -e " +         arjun"
 
 apt-get install -y -qq arjun
 
 # }} arjun
 
 # }} Parameters
-# }} Fuzzing
+# }} Fuzz
 
-echo -e " +         Fuzzing"
+echo -e " +     Fuzz"
 
 # {{ ffuf
 
-echo -e " +             ffuf"
+echo -e " +         ffuf"
 
 go install github.com/ffuf/ffuf@latest
 
 # }} ffuf
 
-# }} Fuzzing
+# }} Fuzz
 
-# {{ Content Discovery
+# }} Discovery
+# {{ Scanner
 
-# }} Reconnaissance
-# {{ Exploitation
+echo -e " + Scanner"
 
-echo -e " + Exploitation"
+echo -e " +    Army-Knife"
+
+# {{ nuclei
+
+echo -e " +         nuclei"
+
+go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+# }}
+# {{ sigurlscann3r
+
+echo -e " +         sigurlscann3r"
+
+go install github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
+
+# }}
 
 echo -e " +     Command Injection"
 
@@ -360,7 +315,60 @@ apt-get install -y -qq dotdotpwn
 
 # }} dotdotpwn
 
-# }} Exploitation
+# }} Scanner
+# {{ Utilities 
+
+echo -e " + Utilities"
+
+# {{ Screenshot
+
+echo -e " +     Screenshot"
+
+# {{ gowitness
+
+echo -e " +         gowitness"
+
+go install github.com/sensepost/gowitness@latest
+
+# }} gowitness
+
+# }} Screenshot
+# {{ JSON 
+
+echo -e " +     JSON"
+
+# {{ jq
+
+echo -e " +         jq"
+
+apt-get install -y -qq jq
+
+# }} jq
+
+# }} JSON
+# {{ urlx
+
+echo -e " +         urlx"
+
+go install github.com/enenumxela/urlx/cmd/urlx@latest
+
+# }} urlx
+# {{ anew
+
+echo -e " +         anew"
+
+go install github.com/tomnomnom/anew@latest
+
+# }} anew
+# {{ wuzz
+
+echo -e " +         wuzz"
+
+go install github.com/asciimoo/wuzz@latest
+
+# }} wuzz
+
+# }} Utilities
 # {{ Wordlists
 
 echo -e " + Wordlists"

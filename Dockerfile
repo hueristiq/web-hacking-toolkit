@@ -1,4 +1,4 @@
-FROM signedsecurity/toolkits-base-debian:v1.1.0
+FROM signedsecurity/toolkits-base-debian:v1.2.0
 
 ARG HOME=/root
 ARG DEBIAN_FRONTEND=noninteractive
@@ -8,15 +8,13 @@ COPY configurations.tar.gz /tmp/configurations.tar.gz
 RUN \
 	# up(date|grade)
 	apt-get update && \
-	apt-get upgrade -y --allow-downgrades && \
+	apt-get upgrade -qq -y && \
 	# extract configurations
 	tar -xzf /tmp/configurations.tar.gz -C /tmp && \
-	# setup node & npm
-	apt-get install -y --no-install-recommends \
-		npm \
-		nodejs && \
-	# setup yarn
-	npm install -g yarn 
+	# install node, npm & yarn
+	curl -fsSL https://deb.nodesource.com/setup_17.x | bash - && \
+	apt-get install -qq -y nodejs && \
+	npm install -g yarn
 
 COPY scripts $HOME/scripts
 
