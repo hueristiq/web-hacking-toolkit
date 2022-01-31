@@ -166,9 +166,10 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Discovery/DOMAIN | [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
 | Discovery/DOMAIN | [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
 | Utility/URL | [urlx](https://github.com/enenumxela/urlx) | A go(golang) utility for URLs parsing & pull out bits of the URLS. |
+| Discovery/Tech | [waf00f](https://github.com/EnableSecurity/wafw00f) | The Web Application Firewall Fingerprinting Tool. |
 | Discovery/Tech | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
 | Discovery/WHOIS | whois | whois - client for the whois directory service |
-| Discovery/ALL | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
+| Discovery/Tech | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
 | Utility/HTTP | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
 ### Wordlists

@@ -271,6 +271,13 @@ fi
 
 echo -e " +++++++++ Technologies"
 
+# {{ wafw00f
+
+echo -e " +++++++++++++ wafw00f"
+
+apt-get install -y -qq wafw00f
+
+# }} wafw00f
 # {{ whatweb
 
 echo -e " +++++++++++++ whatweb"
