@@ -170,6 +170,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Discovery/Tech | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
 | Discovery/WHOIS | whois | whois - client for the whois directory service |
 | Discovery/Tech | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
+| Scanner/WP| [wpscan](https://github.com/wpscanteam/wpscan) | WordPress Security Scanner |
 | Utility/HTTP | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
 ### Wordlists

@@ -364,6 +364,16 @@ go install github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
 
 # }}
 
+echo -e " +++++++++ Wordpress"
+
+# {{ wpscan
+
+echo -e " +++++++++++++ wpscan"
+
+apt-get install -y -qq wpscan
+
+# }} wpscan
+
 echo -e " +++++++++ Command Injection"
 
 # {{ commix
