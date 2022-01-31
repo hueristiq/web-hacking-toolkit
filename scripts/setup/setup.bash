@@ -366,6 +366,19 @@ go install github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
 
 echo -e " +++++++++ Wordpress"
 
+# {{ wprecon
+
+echo -e " +++++++++++++ wprecon"
+
+
+go get github.com/blackcrw/wprecon
+cd $(go env GOPATH)/src/github.com/blackcrw/wprecon
+make build
+make install
+cd -
+
+
+# }} wprecon
 # {{ wpscan
 
 echo -e " +++++++++++++ wpscan"
