@@ -412,6 +412,19 @@ apt-get install -y -qq dotdotpwn
 
 echo -e " +++++ Utilities"
 
+# {{ DNS
+
+echo -e " +++++++++ DNS"
+
+# {{ dnsutils (dig, nslookup...)
+
+echo -e " +++++++++++++ dnsutils (dig, nslookup...)"
+
+apt-get install dnsutils
+
+# }} dnsutils (dig, nslookup...)
+
+# }} DNS
 # {{ Screenshot
 
 echo -e " +++++++++ Screenshot"
