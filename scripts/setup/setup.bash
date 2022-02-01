@@ -377,17 +377,14 @@ echo -e " +++++++++ Wordpress"
 
 echo -e " +++++++++++++ wprecon"
 
+file="/usr/local/bin/wprecon"
 
-go get github.com/blackcrw/wprecon
+curl -sL https://github.com/blackcrw/wprecon/releases/latest/download/wprecon-linux -o ${file}
 
-if [ -d $(go env GOPATH)/src/github.com/blackcrw/wprecon ]
+if [ -f ${file} ]
 then
-	cd $(go env GOPATH)/src/github.com/blackcrw/wprecon
-	make build
-	make install
-	cd -
+	chmod u+x ${file}
 fi
-
 
 # }} wprecon
 # {{ wpscan
@@ -505,6 +502,19 @@ go install github.com/enenumxela/urlx/cmd/urlx@latest
 # }} urlx
 
 # }} URL
+# {{ CDN
+
+echo -e " +++++++++ CDN"
+
+# {{ cdncheck
+
+echo -e " +++++++++++++ cdncheck"
+
+go install github.com/enenumxela/cdncheck/cmd/cdncheck@latest
+
+# }} cdncheck
+
+# }} CDN
 # {{ tee 
 
 echo -e " +++++++++ tee"

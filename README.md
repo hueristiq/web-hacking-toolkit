@@ -142,6 +142,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | Utility/ANY | [anew](https://github.com/tomnomnom/anew) | A tool for adding new lines to files, skipping duplicates |
 | Discovery/PARAM| [Arjun](https://github.com/s0md3v/Arjun) | HTTP parameter discovery suite. |
 | Army-Knife/PROXY | [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition. |
+| Utility/CDN | [cdncheck](https://github.com/enenumxela/cdncheck) | A CLI wrapper for ProjectDiscovery's cdncheck library - "Helper library that checks if a given IP belongs to known CDN ranges (akamai, cloudflare, incapsula and sucuri)". |
 | Scanner/RCE | [commix](https://github.com/commixproject/commix) | Automated All-in-One OS Command Injection Exploitation Tool. |
 | Scanner/CRLF | [crlfuzz](https://github.com/dwisiswant0/crlfuzz) | A fast tool to scan CRLF vulnerability written in Go |
 | Utility/HTTP | [curl](https://github.com/curl/curl) | A command line tool and library for transferring data with URL syntax, supporting HTTP, HTTPS, FTP, FTPS, GOPHER, TFTP, SCP, SFTP, SMB, TELNET, DICT, LDAP, LDAPS, MQTT, FILE, IMAP, SMTP, POP3, RTSP and RTMP. libcurl offers a myriad of powerful features |
