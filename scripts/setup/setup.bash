@@ -214,6 +214,13 @@ echo -e " +++++++++++++ dnsx"
 go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
 # }} dnsx
+# {{ massdns
+
+echo -e " +++++++++++++ massdns"
+
+apt-get install -y -qq massdns
+
+# }} massdns
 # {{ hakrevdns
 
 echo -e " +++++++++++++ hakrevdns"
@@ -372,10 +379,14 @@ echo -e " +++++++++++++ wprecon"
 
 
 go get github.com/blackcrw/wprecon
-cd $(go env GOPATH)/src/github.com/blackcrw/wprecon
-make build
-make install
-cd -
+
+if [ -d $(go env GOPATH)/src/github.com/blackcrw/wprecon ]
+then
+	cd $(go env GOPATH)/src/github.com/blackcrw/wprecon
+	make build
+	make install
+	cd -
+fi
 
 
 # }} wprecon
@@ -450,7 +461,7 @@ echo -e " +++++++++ DNS"
 
 echo -e " +++++++++++++ dnsutils (dig, nslookup...)"
 
-apt-get install dnsutils
+apt-get install -y -qq dnsutils
 
 # }} dnsutils (dig, nslookup...)
 
@@ -542,6 +553,13 @@ then
 	mkdir -p ${wordlists}
 fi
 
+# {{ DNS Resolvers
+
+echo -e " +++++ DNS Resolvers"
+
+curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
+
+# }} DNS Resolvers
 # {{ seclists
 
 echo -e " +++++ seclists"
