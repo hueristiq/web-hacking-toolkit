@@ -548,6 +548,19 @@ go install github.com/projectdiscovery/httpx/cmd/httpx@latest
 # }}
 
 # }} HTTP
+# {{ Netrworking
+
+echo -e " +++++++++ Netrworking"
+
+# {{ ping
+
+echo -e " +++++++++++++ ping"
+
+apt-get install -y -qq iputils-ping
+
+# }} ping
+
+# }} Netrworking
 
 # }} Utilities
 
