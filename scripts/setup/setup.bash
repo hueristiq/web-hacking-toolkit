@@ -559,6 +559,13 @@ echo -e " +++++++++++++ ping"
 apt-get install -y -qq iputils-ping
 
 # }} ping
+# {{ net-tools
+
+echo -e " +++++++++++++ net-tools"
+
+apt-get install -y -qq net-tools
+
+# }} net-tools
 
 # }} Netrworking
 

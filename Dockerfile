@@ -18,7 +18,6 @@ RUN \
 		xauth \
 		libxss1 \
 		locales \
-		net-tools \
 		apt-utils \
 		build-essential && \
 	# install/generate locales
