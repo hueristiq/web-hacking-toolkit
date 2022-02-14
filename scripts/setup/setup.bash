@@ -100,6 +100,15 @@ mv ${CONFIGURATIONS}/.vimrc ${HOME}/.vim/vimrc
 
 echo -e " +++++ Browser"
 
+# {{ chrome
+
+echo -e " +++++++++ chrome"
+
+curl -sL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/google-chrome-stable_current_amd64.deb
+
+apt-get install -y -qq /tmp/google-chrome-stable_current_amd64.deb
+
+# }} chrome
 # {{ firefox
 
 echo -e " +++++++++ firefox"
