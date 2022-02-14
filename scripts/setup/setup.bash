@@ -4,7 +4,7 @@ tools="${HOME}/tools"
 
 if [ ! -d ${tools} ]
 then
-    mkdir -p ${tools}
+	mkdir -p ${tools}
 fi
 
 CONFIGURATIONS="/tmp/configurations"
@@ -20,7 +20,6 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd
 sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 # }} ssh
-
 # {{ System 
 
 echo -e " + Terminal"
@@ -55,8 +54,8 @@ git clone https://github.com/tmux-plugins/tpm.git ${TMUX_PLUGINS}/tpm
 
 if [ -f ${TMUX_PLUGINS}/tpm/bin/install_plugins ]
 then
-    chmod +x ${TMUX_PLUGINS}/tpm/bin/install_plugins
-    ${TMUX_PLUGINS}/tpm/bin/install_plugins
+	chmod +x ${TMUX_PLUGINS}/tpm/bin/install_plugins
+	${TMUX_PLUGINS}/tpm/bin/install_plugins
 fi
 
 # }} tmux

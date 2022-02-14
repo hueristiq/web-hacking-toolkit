@@ -6,9 +6,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
 	# up(date|grade)
 	apt-get update && \
-	apt-get upgrade -qq -y && \
+	apt-get upgrade -y -qq && \
 	# install essentials
-	apt-get install -y --no-install-recommends \
+	apt-get install -y -qq --no-install-recommends \
 		tar \
 		git \
 		curl \
@@ -23,7 +23,7 @@ RUN \
 	# install/generate locales
 	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
 	# setup python3
-	apt-get install -y --no-install-recommends \
+	apt-get install -y -qq --no-install-recommends \
 		python3 \
 		python3-dev \
 		python3-pip \
@@ -34,7 +34,7 @@ RUN \
 	rm -rf /tmp/go1.17.6.linux-amd64.tar.gz && \
 	# install node, npm & yarn
 	curl -fsSL https://deb.nodesource.com/setup_17.x | bash - && \
-	apt-get install -qq -y nodejs && \
+	apt-get install -y -qq  nodejs && \
 	npm install -g yarn
 
 ENV HOME="${HOME}" \
