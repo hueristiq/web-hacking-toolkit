@@ -41,7 +41,7 @@ ENV HOME="${HOME}" \
 	LANG="en_US.utf8" \
 	GOPATH="${HOME}/go" \
 	GOROOT="/usr/local/go" \
-	PATH="$PATH:/usr/local/go/bin:${HOME}/go/bin:${HOME}/scripts"
+	PATH="$PATH:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin:${HOME}/scripts"
 
 COPY scripts $HOME/scripts
 COPY configurations.tar.gz /tmp/configurations.tar.gz

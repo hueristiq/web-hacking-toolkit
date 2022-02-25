@@ -199,7 +199,7 @@ go install github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest
 
 echo -e " +++++++++++++ subdomains.sh"
 
-file="/usr/local/bin/subdomains.sh"
+file="${HOME}/.local/bin/subdomains.sh"
 
 curl -sL https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/subdomains.sh -o ${file}
 
@@ -270,7 +270,7 @@ echo -e " +++++++++++++ ps.sh"
 
 apt-get install -y -qq libxml2-utils
 
-file="/usr/local/bin/ps.sh"
+file="${HOME}/.local/bin/ps.sh"
 
 curl -sL https://raw.githubusercontent.com/enenumxela/ps.sh/main/ps.sh -o ${file}
 
