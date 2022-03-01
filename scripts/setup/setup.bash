@@ -609,12 +609,24 @@ echo -e " +++++ DNS Resolvers"
 curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
 
 # }} DNS Resolvers
-# {{ seclists
+# {{ Assetnote
 
-echo -e " +++++ seclists"
+echo -e " +++++ Assetnote"
 
-git clone https://github.com/danielmiessler/SecLists.git ${wordlists}/seclists
+cd ${wordlists}
 
-# }} seclists
+wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
+mv -rf data Assetnote
+
+cd -
+
+# }} Assetnote
+# {{ SecLists
+
+echo -e " +++++ SecLists"
+
+git clone https://github.com/danielmiessler/SecLists.git ${wordlists}/SecLists
+
+# }} SecLists
 
 # }} Wordlists
