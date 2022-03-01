@@ -367,6 +367,21 @@ go install github.com/ffuf/ffuf@latest
 # }} ffuf
 
 # }} Fuzz
+# }} Content
+
+echo -e " +++++++++ Content"
+
+# {{ kiterunner
+
+echo -e " +++++++++++++ kiterunner"
+
+curl -sL https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_arm64.tar.gz -o /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
+tar -xzf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz -C /usr/local && \
+rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz && \
+
+# }} kiterunner
+
+# }} Content
 
 # }} Discovery
 # {{ Scanner
@@ -602,13 +617,13 @@ then
 	mkdir -p ${wordlists}
 fi
 
-# {{ DNS Resolvers
+# {{ blechschmidt's massdns resolvers.txt
 
-echo -e " +++++ DNS Resolvers"
+echo -e " +++++ blechschmidt's massdns resolvers.txt"
 
 curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
 
-# }} DNS Resolvers
+# }} blechschmidt's massdns resolvers.txt
 # {{ Assetnote
 
 echo -e " +++++ Assetnote"
