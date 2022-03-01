@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
 	# up(date|grade)
 	apt-get update && \
-	apt-get upgrade -y -qq && \
+	apt-get upgrade -qq -y && \
 	# install essentials
 	apt-get install -y -qq --no-install-recommends \
 		tar \
@@ -47,8 +47,6 @@ COPY scripts $HOME/scripts
 COPY configurations.tar.gz /tmp/configurations.tar.gz
 
 RUN \
-	# make scripts executable
-	chmod a+x $HOME/scripts/* && \
 	# extract configurations
 	tar -xzf /tmp/configurations.tar.gz -C /tmp && \
 	# run setup scripts
@@ -58,6 +56,8 @@ RUN \
 		chmod u+x ${script} && \
 		${script}; \
 	done && \
+	# make scripts executable
+	chmod a+x $HOME/scripts/* && \
 	# clean up
 	# remove setup scripts
 	rm -rf $HOME/scripts/setup && \
