@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-tools="${HOME}/tools"
-
-if [ ! -d ${tools} ]
-then
-	mkdir -p ${tools}
-fi
-
 USER_LOCAL_BIN="${HOME}/.local/bin"
-CONFIGURATIONS="/tmp/configurations"
 
 if [ ! -d ${USER_LOCAL_BIN} ]
 then
 	mkdir -p ${USER_LOCAL_BIN}
 fi
+
+CONFIGURATIONS="/tmp/configurations"
 
 # {{ ssh
 
@@ -28,7 +22,7 @@ sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' 
 # }} ssh
 # {{ System 
 
-echo -e " + Terminal"
+echo -e " + System"
 
 # {{ Terminal
 
@@ -132,57 +126,73 @@ mv -f ${CONFIGURATIONS}/.mozilla ${HOME}/.mozilla
 
 echo -e " + Tools"
 
-# {{ Swiss Army-Knife
+tools="${HOME}/tools"
 
-echo -e " +++++ Swiss Army-Knife"
+if [ ! -d ${tools} ]
+then
+	mkdir -p ${tools}
+fi
 
-# {{ burpsuite
+echo -e " ++++ amass"
 
-echo -e " +++++++++ burpsuite"
+go install -v github.com/OWASP/Amass/v3/...@latest
+
+echo -e " ++++ anew"
+
+go install -v github.com/tomnomnom/anew@latest
+
+echo -e " ++++ arjun"
+
+apt-get install -y -qq arjun
+
+echo -e " ++++ burpsuite"
 
 apt-get install -y -qq burpsuite
 
-# }} burpsuite
+echo -e " ++++ cdncheck"
 
-# }} Swiss Army-Knife
-# {{ Discovery
+go install -v github.com/enenumxela/cdncheck/cmd/cdncheck@latest
 
-echo -e " +++++ Discovery"
+echo -e " ++++ cent"
 
-# {{ WHOIS
+go install -v github.com/xm1k3/cent@latest
 
-echo -e " +++++++++ WHOIS"
+echo -e " ++++ commix"
 
-# {{ whois
+apt-get install -y -qq commix
 
-echo -e " +++++++++++++ whois"
+echo -e " ++++ crlfuzz"
 
-apt-get install -y -qq whois
+go install -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
 
-# }} whois
+echo -e " ++++ dalfox"
 
-# }} WHOIS
-# {{ Domain
+go install -v github.com/hahwul/dalfox/v2@latest
 
-echo -e " +++++++++ Domain"
+echo -e " ++++ dnsutils (dig, nslookup...)"
 
-# {{ amass
+apt-get install -y -qq dnsutils
 
-echo -e " +++++++++++++ amass"
+echo -e " ++++ dnsvalidator"
 
-go install github.com/OWASP/Amass/v3/...@latest
+git clone https://github.com/vortexau/dnsvalidator.git /tmp/dnsvalidator
+cd /tmp/dnsvalidator
+python3 setup.py install
+cd -
 
-# }} amass
-# {{ subfinder
+echo -e " ++++ dnsx"
 
-echo -e " +++++++++++++ subfinder"
+go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
-go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+echo -e " ++++ dotdotpwn"
 
-# }} subfinder
-# {{ findomain
+apt-get install -y -qq dotdotpwn
 
-echo -e " +++++++++++++ findomain"
+echo -e " ++++ ffuf"
+
+go install -v github.com/ffuf/ffuf@latest
+
+echo -e " ++++ findomain"
 
 file="/usr/local/bin/findomain"
 
@@ -193,127 +203,98 @@ then
 	chmod u+x ${file}
 fi
 
-# }} findomain
-# {{ sigsubfind3r
+echo -e " ++++ gowitness"
 
-echo -e " +++++++++++++ sigsubfind3r"
+go install -v github.com/sensepost/gowitness@latest
 
-go install github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest
+echo -e " ++++ hakrevdns"
 
-# }} sigsubfind3r
-# {{ subdomains.sh
+go install -v github.com/hakluke/hakrevdns@latest
 
-echo -e " +++++++++++++ subdomains.sh"
+echo -e " ++++ httpx"
 
-curl -s https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/install.sh | bash -
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
-# file="${USER_LOCAL_BIN}/subdomains.sh"
+echo -e " ++++ jq"
 
-# curl -sL https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/subdomains.sh -o ${file}
+apt-get install -y -qq jq
 
-# if [ -f ${file} ]
-# then
-# 	chmod u+x ${file}
-# fi
+echo -e " ++++ kiterunner"
 
-# }} subdomains.sh
+curl -sL https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_arm64.tar.gz -o /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
+tar -xzf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz -C /usr/local && \
+rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz && \
 
-# }} Domain
-# {{ DNS
-
-echo -e " +++++++++ DNS"
-
-# {{ dnsx
-
-echo -e " +++++++++++++ dnsx"
-
-go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-
-# }} dnsx
-# {{ massdns
-
-echo -e " +++++++++++++ massdns"
-
-apt-get install -y -qq massdns
-
-# }} massdns
-# {{ hakrevdns
-
-echo -e " +++++++++++++ hakrevdns"
-
-go install github.com/hakluke/hakrevdns@latest
-
-# }} hakrevdns
-
-# }} DNS
-# {{ PORT
-
-echo -e " +++++++++ PORT"
-
-# {{ nmap
-
-echo -e " +++++++++++++ nmap"
-
-apt-get install -y -qq nmap
-
-# }} nmap
-# {{ naabu
-
-echo -e " +++++++++++++ naabu"
-
-apt-get install -y -qq libpcap-dev
-go install github.com/projectdiscovery/naabu/cmd/naabu@latest
-
-# }} naabu
-# {{ masscan
-
-echo -e " +++++++++++++ masscan"
+echo -e " ++++ masscan"
 
 apt-get install -y -qq masscan
 
-# }} masscan
-# {{ ps.sh
+echo -e " ++++ massdns"
 
-echo -e " +++++++++++++ ps.sh"
+apt-get install -y -qq massdns
+
+echo -e " ++++ naabu"
+
+apt-get install -y -qq libpcap-dev
+go install -v github.com/projectdiscovery/naabu/cmd/naabu@latest
+
+echo -e " ++++ net-tools"
+
+apt-get install -y -qq net-tools
+
+echo -e " ++++ nmap"
+
+apt-get install -y -qq nmap
+
+echo -e " ++++ nuclei"
+
+go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+echo -e " ++++ ping"
+
+apt-get install -y -qq iputils-ping
+
+echo -e " ++++ ps.sh"
 
 curl -s https://raw.githubusercontent.com/enenumxela/ps.sh/main/install.sh | bash -
 
+echo -e " ++++ puredns"
 
-# apt-get install -y -qq libxml2-utils
+go install -v github.com/d3mondev/puredns/v2@latest
 
-# file="${USER_LOCAL_BIN}/ps.sh"
+echo -e " ++++ sigsubfind3r"
 
-# curl -sL https://raw.githubusercontent.com/enenumxela/ps.sh/main/ps.sh -o ${file}
+go install -v github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest
 
-# if [ -f ${file} ]
-# then
-# 	chmod u+x ${file}
-# fi
+echo -e " ++++ sigurlfind3r"
 
-# }} ps.sh
+go install -v github.com/signedsecurity/sigurlfind3r/cmd/sigurlfind3r@latest
 
-# }} PORT
-# {{ Technologies
+echo -e " ++++ sigurlscann3r"
 
-echo -e " +++++++++ Technologies"
+go install -v github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
 
-# {{ wafw00f
+echo -e " ++++ sqlmap"
 
-echo -e " +++++++++++++ wafw00f"
+apt-get install -y -qq sqlmap
+
+echo -e " ++++ subdomains.sh"
+
+curl -s https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/install.sh | bash -
+
+echo -e " ++++ subfinder"
+
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
+echo -e " ++++ urlx"
+
+go install -v github.com/enenumxela/urlx/cmd/urlx@latest
+
+echo -e " ++++ wafw00f"
 
 apt-get install -y -qq wafw00f
 
-# }} wafw00f
-# {{ whatweb
-
-echo -e " +++++++++++++ whatweb"
-
-apt-get install -y -qq whatweb
-
-# }} whatweb
-# {{ wappalyzer
-
-echo -e " +++++++++++++ wappalyzer"
+echo -e " ++++ wappalyzer"
 
 git clone https://github.com/AliasIO/wappalyzer.git ${tools}/wappalyzer
 
@@ -325,91 +306,15 @@ then
 	cd -
 fi
 
-# }} wappalyzer
+echo -e " ++++ whatweb"
 
-# }} Technologies
-# }} URL
+apt-get install -y -qq whatweb
 
-echo -e " +++++++++ URL"
+echo -e " ++++ whois"
 
-# {{ sigurlfind3r
+apt-get install -y -qq whois
 
-echo -e " +++++++++++++ sigurlfind3r"
-
-go install github.com/signedsecurity/sigurlfind3r/cmd/sigurlfind3r@latest
-
-# }} sigurlfind3r
-
-# }} URL
-# }} Parameters
-
-echo -e " +++++++++ Parameters"
-
-# {{ arjun
-
-echo -e " +++++++++++++ arjun"
-
-apt-get install -y -qq arjun
-
-# }} arjun
-
-# }} Parameters
-# }} Fuzz
-
-echo -e " +++++++++ Fuzz"
-
-# {{ ffuf
-
-echo -e " +++++++++++++ ffuf"
-
-go install github.com/ffuf/ffuf@latest
-
-# }} ffuf
-
-# }} Fuzz
-# }} Content
-
-echo -e " +++++++++ Content"
-
-# {{ kiterunner
-
-echo -e " +++++++++++++ kiterunner"
-
-curl -sL https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_arm64.tar.gz -o /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
-tar -xzf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz -C /usr/local && \
-rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz && \
-
-# }} kiterunner
-
-# }} Content
-
-# }} Discovery
-# {{ Scanner
-
-echo -e " +++++ Scanner"
-
-echo -e " +++++++++ Army-Knife"
-
-# {{ nuclei
-
-echo -e " +++++++++++++ nuclei"
-
-go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
-
-# }}
-# {{ sigurlscann3r
-
-echo -e " +++++++++++++ sigurlscann3r"
-
-go install github.com/signedsecurity/sigurlscann3r/cmd/sigurlscann3r@latest
-
-# }}
-
-echo -e " +++++++++ Wordpress"
-
-# {{ wprecon
-
-echo -e " +++++++++++++ wprecon"
+echo -e " ++++ wprecon"
 
 file="/usr/local/bin/wprecon"
 
@@ -420,190 +325,13 @@ then
 	chmod u+x ${file}
 fi
 
-# }} wprecon
-# {{ wpscan
-
-echo -e " +++++++++++++ wpscan"
+echo -e " ++++ wpscan"
 
 apt-get install -y -qq wpscan
 
-# }} wpscan
+echo -e " ++++ wuzz"
 
-echo -e " +++++++++ Command Injection"
-
-# {{ commix
-
-echo -e " +++++++++++++ commix"
-
-apt-get install -y -qq commix
-
-# }} commix
-
-echo -e " +++++++++ SQL Injection"
-
-# {{ sqlmap
-
-echo -e " +++++++++++++ sqlmap"
-
-apt-get install -y -qq sqlmap
-
-# }} sqlmap
-
-echo -e " +++++++++ Cross Site Scripting"
-
-# {{ dalfox
-
-echo -e " +++++++++++++ dalfox"
-
-go install github.com/hahwul/dalfox/v2@latest
-
-# }} dalfox
-
-echo -e " +++++++++ CRLF Injection"
-
-# {{ crlfuzz
-
-echo -e " +++++++++++++ crlfuzz"
-
-go install github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
-
-# }} crlfuzz
-
-echo -e " +++++++++ Directory Traversal"
-
-# {{ dotdotpwn
-
-echo -e " +++++++++++++ dotdotpwn"
-
-apt-get install -y -qq dotdotpwn
-
-# }} dotdotpwn
-
-# }} Scanner
-# {{ Utilities
-
-echo -e " +++++ Utilities"
-
-# {{ DNS
-
-echo -e " +++++++++ DNS"
-
-# {{ dnsutils (dig, nslookup...)
-
-echo -e " +++++++++++++ dnsutils (dig, nslookup...)"
-
-apt-get install -y -qq dnsutils
-
-# }} dnsutils (dig, nslookup...)
-
-# }} DNS
-# {{ Screenshot
-
-echo -e " +++++++++ Screenshot"
-
-# {{ gowitness
-
-echo -e " +++++++++++++ gowitness"
-
-go install github.com/sensepost/gowitness@latest
-
-# }} gowitness
-
-# }} Screenshot
-# {{ JSON 
-
-echo -e " +++++++++ JSON"
-
-# {{ jq
-
-echo -e " +++++++++++++ jq"
-
-apt-get install -y -qq jq
-
-# }} jq
-
-# }} JSON
-# {{ URL 
-
-echo -e " +++++++++ URL"
-
-# {{ urlx
-
-echo -e " +++++++++++++ urlx"
-
-go install github.com/enenumxela/urlx/cmd/urlx@latest
-
-# }} urlx
-
-# }} URL
-# {{ CDN
-
-echo -e " +++++++++ CDN"
-
-# {{ cdncheck
-
-echo -e " +++++++++++++ cdncheck"
-
-go install github.com/enenumxela/cdncheck/cmd/cdncheck@latest
-
-# }} cdncheck
-
-# }} CDN
-# {{ tee 
-
-echo -e " +++++++++ tee"
-
-# {{ anew
-
-echo -e " +++++++++++++ anew"
-
-go install github.com/tomnomnom/anew@latest
-
-# }} anew
-
-# }} tee
-# {{ HTTP 
-
-echo -e " +++++++++ HTTP"
-
-# {{ wuzz
-
-echo -e " +++++++++++++ wuzz"
-
-go install github.com/asciimoo/wuzz@latest
-
-# }} wuzz
-# {{ httpx
-
-echo -e " +++++++++++++ httpx"
-
-go install github.com/projectdiscovery/httpx/cmd/httpx@latest
-
-# }}
-
-# }} HTTP
-# {{ Netrworking
-
-echo -e " +++++++++ Netrworking"
-
-# {{ ping
-
-echo -e " +++++++++++++ ping"
-
-apt-get install -y -qq iputils-ping
-
-# }} ping
-# {{ net-tools
-
-echo -e " +++++++++++++ net-tools"
-
-apt-get install -y -qq net-tools
-
-# }} net-tools
-
-# }} Netrworking
-
-# }} Utilities
+go install -v github.com/asciimoo/wuzz@latest
 
 # }} Tools
 # {{ Wordlists
@@ -617,31 +345,29 @@ then
 	mkdir -p ${wordlists}
 fi
 
-# {{ blechschmidt's massdns resolvers.txt
-
-echo -e " +++++ blechschmidt's massdns resolvers.txt"
-
-curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
-
-# }} blechschmidt's massdns resolvers.txt
-# {{ Assetnote
-
-echo -e " +++++ Assetnote"
+echo -e " ++++ Assetnote"
 
 cd ${wordlists}
 
-wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
-mv -rf data Assetnote
+wget --quiet --show-progres -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
+mv data Assetnote
 
 cd -
 
-# }} Assetnote
-# {{ SecLists
+echo -e " ++++ blechschmidt's massdns resolvers.txt"
 
-echo -e " +++++ SecLists"
+curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
+
+echo -e " ++++ leaky-paths"
+
+curl -sL https://raw.githubusercontent.com/ayoubfathi/leaky-paths/main/leaky-paths.txt -o ${wordlists}/leaky-paths.txt
+
+echo -e " ++++ permutations"
+
+curl -sL https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4/raw/df5ef9e898fa4598e83263925f49d6fe6242ddf1/permutations_list.txt -o ${wordlists}/permutations.txt
+
+echo -e " ++++ SecLists"
 
 git clone https://github.com/danielmiessler/SecLists.git ${wordlists}/SecLists
-
-# }} SecLists
 
 # }} Wordlists
