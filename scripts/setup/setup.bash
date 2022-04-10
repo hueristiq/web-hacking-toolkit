@@ -33,6 +33,7 @@ echo -e " +++++ Terminal"
 echo -e " +++++++++ SHELL (bash)"
 
 mv ${CONFIGURATIONS}/.bashrc ${HOME}/.bashrc
+mv ${CONFIGURATIONS}/.hushlogin ${HOME}/.hushlogin
 
 # }} bash
 # {{ tmux
@@ -153,10 +154,6 @@ echo -e " ++++ cdncheck"
 
 go install -v github.com/enenumxela/cdncheck/cmd/cdncheck@latest
 
-echo -e " ++++ cent"
-
-go install -v github.com/xm1k3/cent@latest
-
 echo -e " ++++ commix"
 
 apt-get install -y -qq commix
@@ -203,6 +200,14 @@ then
 	chmod u+x ${file}
 fi
 
+echo -e " ++++ gin"
+
+pip3 install gin
+
+echo -e " ++++  grep"
+
+apt-get install -y -qq grep
+
 echo -e " ++++ gowitness"
 
 go install -v github.com/sensepost/gowitness@latest
@@ -223,7 +228,7 @@ echo -e " ++++ kiterunner"
 
 curl -sL https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_arm64.tar.gz -o /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
 tar -xzf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz -C /usr/local && \
-rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz && \
+rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
 
 echo -e " ++++ masscan"
 
@@ -261,6 +266,10 @@ curl -s https://raw.githubusercontent.com/enenumxela/ps.sh/main/install.sh | bas
 echo -e " ++++ puredns"
 
 go install -v github.com/d3mondev/puredns/v2@latest
+
+echo -e " ++++ sigrawl3r"
+
+go install -v github.com/signedsecurity/sigrawl3r/cmd/sigrawl3r@latest
 
 echo -e " ++++ sigsubfind3r"
 
@@ -314,17 +323,6 @@ echo -e " ++++ whois"
 
 apt-get install -y -qq whois
 
-echo -e " ++++ wprecon"
-
-file="/usr/local/bin/wprecon"
-
-curl -sL https://github.com/blackcrw/wprecon/releases/latest/download/wprecon-linux -o ${file}
-
-if [ -f ${file} ]
-then
-	chmod u+x ${file}
-fi
-
 echo -e " ++++ wpscan"
 
 apt-get install -y -qq wpscan
@@ -344,15 +342,6 @@ if [ ! -d ${wordlists} ]
 then
 	mkdir -p ${wordlists}
 fi
-
-echo -e " ++++ Assetnote"
-
-cd ${wordlists}
-
-wget --quiet --show-progres -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
-mv data Assetnote
-
-cd -
 
 echo -e " ++++ blechschmidt's massdns resolvers.txt"
 

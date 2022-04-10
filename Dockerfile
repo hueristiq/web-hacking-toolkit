@@ -29,12 +29,13 @@ RUN \
 		python3-pip \
 		python3-venv && \
 	# setup go(golang)
-	curl -sL https://golang.org/dl/go1.17.6.linux-amd64.tar.gz -o /tmp/go1.17.6.linux-amd64.tar.gz && \
-	tar -xzf /tmp/go1.17.6.linux-amd64.tar.gz -C /usr/local && \
-	rm -rf /tmp/go1.17.6.linux-amd64.tar.gz && \
+	curl -sL https://golang.org/dl/go1.18.linux-amd64.tar.gz -o /tmp/go1.18.linux-amd64.tar.gz && \
+	tar -xzf /tmp/go1.18.linux-amd64.tar.gz -C /usr/local && \
+	rm -rf /tmp/go1.18.linux-amd64.tar.gz && \
 	# install node, npm & yarn
 	curl -fsSL https://deb.nodesource.com/setup_17.x | bash - && \
 	apt-get install -y -qq  nodejs && \
+	npm install -g npm@latest && \
 	npm install -g yarn
 
 ENV HOME="${HOME}" \

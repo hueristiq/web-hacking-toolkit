@@ -38,14 +38,14 @@ A web hacking toolkit docker image with GUI applications support.
 ## Resources
 
 * [Installation](#installation)
-    * [Docker](#docker)
-    * [Docker Compose](#docker-compose)
-    * [Build from Source](#build-from-source)
+	* [Docker](#docker)
+	* [Docker Compose](#docker-compose)
+	* [Build from Source](#build-from-source)
 * [GUI Support](#gui-support)
-    * [Using SSH with X11 forwarding](#using-ssh-with-x11-forwarding)
+	* [Using SSH with X11 forwarding](#using-ssh-with-x11-forwarding)
 * [Installed](#installed)
-    * [Tools](#tools)
-    * [Wordlists](#wordlists)
+	* [Tools](#tools)
+	* [Wordlists](#wordlists)
 
 ## Installation
 
@@ -143,7 +143,6 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [Arjun](https://github.com/s0md3v/Arjun) | HTTP parameter discovery suite. |
 | [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition. |
 | [cdncheck](https://github.com/enenumxela/cdncheck) | A CLI wrapper for ProjectDiscovery's cdncheck library - "Helper library that checks if a given IP belongs to known CDN ranges (akamai, cloudflare, incapsula and sucuri)". |
-| [cent](https://github.com/xm1k3/cent) | Community edition nuclei templates, a simple tool that allows you to organize all the Nuclei templates offered by the community in one place. |
 | [chrome](https://www.google.com/chrome/) | Chrome is a fast, secure, free web browser built by Google. |
 | [commix](https://github.com/commixproject/commix) | Automated All-in-One OS Command Injection Exploitation Tool. |
 | [crlfuzz](https://github.com/dwisiswant0/crlfuzz) | A fast tool to scan CRLF vulnerability written in Go |
@@ -155,7 +154,9 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [ffuf](https://github.com/ffuf/ffuf) | Fast web fuzzer written in Go |
 | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
 | [firefox](https://www.mozilla.org/en-US/firefox/new/) | Safe and easy web browser from Mozilla |and cross-platform subdomain enumerator, do not waste your time. |
-| [gowitness](https://github.com/sensepost/gowitness) | mag gowitness - a golang, web screenshot utility using Chrome Headless |
+| [gin](https://github.com/sbp/gin) | Git index file parser, using python3 |
+| [gowitness](https://github.com/sensepost/gowitness) | gowitness - a golang, web screenshot utility using Chrome Headless |
+| [grep](https://www.gnu.org/software/grep/) | Grep searches one or more input files for lines containing a match to a specified pattern. |
 | [hakrevdns](https://github.com/hakluke/hakrevdns) | Small, fast, simple tool for performing reverse DNS lookups en masse. |
 | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
 | [kiterunner](https://github.com/assetnote/kiterunner) | Contextual Content Discovery Tool |
@@ -167,6 +168,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [ping](https://github.com/iputils/iputils) | Tools to test the reachability of network hosts. |
 | [ps.sh](https://github.com/enenumxela/ps.sh) | A wrapper around tools used for port scanning(nmap, naabu & masscan), the goal being reducing scan time, increasing scan efficiency and automating the workflow. |
 | [puredns](https://github.com/d3mondev/puredns) | Puredns is a fast domain resolver and subdomain bruteforcing tool that can accurately filter out wildcard subdomains and DNS poisoned entries.  |
+| [sigrawl3r](https://github.com/signedsecurity/sigrawl3r) | A fast web crawler. |
 | [sigsubfind3r](https://github.com/signedsecurity/sigsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
 | [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
 | [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
@@ -178,7 +180,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
 | whois | whois - client for the whois directory service |
 | [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
-| [wprecon](https://github.com/blackcrw/wprecon) | WPRecon, is a tool for the recognition of vulnerabilities and blackbox information for wordpress. |
+| [whois](https://github.com/rfc1036/whois) | client for the whois directory service |
 | [wpscan](https://github.com/wpscanteam/wpscan) | WordPress Security Scanner |
 | [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
 
@@ -186,7 +188,6 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 
 | Wordlist | Description |
 | :------- | :---------- |
-| [Assetnote](https://wordlists.assetnote.io/) | Assetnote provides you with wordlists that are up to date and effective against the most popular technologies on the internet. Wordlists are generated on the 28th of each month, using Commonspeak2 and GitHub Actions. |
 | [blechschmidt's massdns resolvers.txt](https://github.com/blechschmidt/massdns/blob/master/lists/resolvers.txt) | DNS Resolvers |
 | [leaky-paths](https://github.com/ayoubfathi/leaky-paths) | A collection of special paths linked to major web CVEs, known juicy APIs, misconfigurations.. etc. |
 | [SecLists](https://github.com/danielmiessler/SecLists) | SecLists is the security tester's companion. It's a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more. |
