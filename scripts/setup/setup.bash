@@ -146,7 +146,7 @@ echo -e " ++++ arjun"
 
 apt-get install -y -qq arjun
 
-echo -e " ++++ burpsuite"
+echo -e " ++++ Burp Suite Community"
 
 apt-get install -y -qq burpsuite
 
@@ -161,6 +161,10 @@ apt-get install -y -qq commix
 echo -e " ++++ crlfuzz"
 
 go install -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
+
+echo -e " ++++ curl"
+
+apt-get install -y -qq curl
 
 echo -e " ++++ dalfox"
 
@@ -204,13 +208,13 @@ echo -e " ++++ gin"
 
 pip3 install gin
 
-echo -e " ++++  grep"
-
-apt-get install -y -qq grep
-
 echo -e " ++++ gowitness"
 
 go install -v github.com/sensepost/gowitness@latest
+
+echo -e " ++++  grep"
+
+apt-get install -y -qq grep
 
 echo -e " ++++ hakrevdns"
 
@@ -250,6 +254,14 @@ apt-get install -y -qq net-tools
 echo -e " ++++ nmap"
 
 apt-get install -y -qq nmap
+
+echo -e " ++++ nmap-utils"
+
+curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/merge-nmap-xml -o /usr/local/bin/merge-nmap-xml
+
+curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/merge-nmap-xml -o /usr/local/bin/parse-nmap-xml
+
+chmod +x /usr/local/bin/merge-nmap-xml /usr/local/bin/parse-nmap-xml
 
 echo -e " ++++ nuclei"
 
