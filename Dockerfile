@@ -1,7 +1,7 @@
 FROM kalilinux/kali-rolling:latest
 
-# ARG HOME=/root
-# ARG DEBIAN_FRONTEND=noninteractive
+ARG HOME=/root
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
 	# up(date|grade)
