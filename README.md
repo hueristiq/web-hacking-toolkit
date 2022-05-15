@@ -139,15 +139,15 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 ### System
 
 * Terminal
-	- shell (ZSH)
-	- multi-plexer (TMUX)
+	* shell (ZSH)
+	* Session Management (TMUX)
 * Text Editor
-	- vim
+	* vim
 * Browser
-	- chrome
-	- firefox
+	* chrome
+	* firefox
 * Remote Connection
-	- SSH
+	* SSH
 
 ### Tools
 
