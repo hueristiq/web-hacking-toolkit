@@ -22,10 +22,10 @@ help:
 	@echo ""
 
 compress-configurations:
-	tar -czf configurations.tar.gz ./configurations
+	7z a configurations.7z configurations
 
 extract-configurations:
-	tar -xzf configurations.tar.gz -C ./
+	7z x configurations.7z
 
 build-image:
 	docker build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
@@ -42,4 +42,4 @@ run:
 		-p 22:22 \
 		-v $(pwd)/data:/root/data \
 		signedsecurity/web-hacking-toolkit \
-		/bin/bash
+		/bin/zsh

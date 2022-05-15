@@ -9,33 +9,44 @@ fi
 
 CONFIGURATIONS="/tmp/configurations"
 
-# {{ ssh
+# {{ System Setup
 
-echo -e " + ssh"
-
-apt-get install -y -qq openssh-server
-
-sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-# }} ssh
-# {{ System 
-
-echo -e " + System"
+echo -e " + System Setup"
 
 # {{ Terminal
 
 echo -e " +++++ Terminal"
 
-# {{ bash
+# {{ zsh
 
-echo -e " +++++++++ SHELL (bash)"
+echo -e " +++++++++ Shell (zsh)"
 
-mv ${CONFIGURATIONS}/.bashrc ${HOME}/.bashrc
+# install zsh
+if [ ! -x "$(command -v zsh)" ]
+then
+	apt-get install -y -qq zsh
+fi
+
+# make zsh default shell
+if [ "${SHELL}" != "$(which zsh)" ]
+then
+	chsh -s $(which zsh) ${USER}
+fi
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended 
+
+# zsh-autosuggestions
+git clone "https://github.com/zsh-users/zsh-autosuggestions" "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+# zsh-syntax-highlighting
+git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+# set up dotfiles
+mv ${CONFIGURATIONS}/.zshrc ${HOME}/.zshrc
+mv ${CONFIGURATIONS}/.zprofile ${HOME}/.zprofile
 mv ${CONFIGURATIONS}/.hushlogin ${HOME}/.hushlogin
 
-# }} bash
+# }} zsh
 # {{ tmux
 
 echo -e " +++++++++ Multiplexer (tmux)"
@@ -105,24 +116,51 @@ echo -e " +++++ Browser"
 
 echo -e " +++++++++ chrome"
 
-curl -sL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/google-chrome-stable_current_amd64.deb
+if [ ! -x "$(command -v google-chrome)" ]
+then
+	curl -sL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/google-chrome-stable_current_amd64.deb
 
-apt-get install -y -qq /tmp/google-chrome-stable_current_amd64.deb
+	apt-get install -y -qq /tmp/google-chrome-stable_current_amd64.deb
+fi
 
 # }} chrome
 # {{ firefox
 
 echo -e " +++++++++ firefox"
 
-apt-get install -y -qq firefox-esr ca-certificates libcanberra-gtk3-module
+# install firefox
+if [ ! -x "$(command -v firefox)" ]
+then
+	apt-get install -y -qq firefox-esr ca-certificates libcanberra-gtk3-module
+fi
 
 mv -f ${CONFIGURATIONS}/.mozilla ${HOME}/.mozilla
 
 # }} firefox
 
 # }} Browser
+# {{ Remote Connection
 
-# }} System
+echo -e " +++++ Remote Connection"
+
+# {{ ssh
+
+echo -e " +++++++++ ssh"
+
+if [ ! -x "$(command -v ssh)" ]
+then
+	apt-get install -y -qq openssh-server
+fi
+
+sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+# }} ssh
+
+# }} Remote Connection
+
+# }} System Setup
 # {{ Tools
 
 echo -e " + Tools"
@@ -144,11 +182,19 @@ go install -v github.com/tomnomnom/anew@latest
 
 echo -e " ++++ arjun"
 
-apt-get install -y -qq arjun
+if [ ! -x "$(command -v arjun)" ]
+then
+	apt-get install -y -qq arjun
+fi
 
 echo -e " ++++ Burp Suite Community"
 
-apt-get install -y -qq burpsuite
+if [ ! -x "$(command -v burpsuite)" ]
+then
+	apt-get install -y -qq burpsuite
+fi
+
+mv ${CONFIGURATIONS}/.BurpSuite ${HOME}/.BurpSuite
 
 echo -e " ++++ cdncheck"
 
@@ -164,7 +210,10 @@ go install -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
 
 echo -e " ++++ curl"
 
-apt-get install -y -qq curl
+if [ ! -x "$(command -v curl)" ]
+then
+	apt-get install -y -qq curl
+fi
 
 echo -e " ++++ dalfox"
 
@@ -172,7 +221,10 @@ go install -v github.com/hahwul/dalfox/v2@latest
 
 echo -e " ++++ dnsutils (dig, nslookup...)"
 
-apt-get install -y -qq dnsutils
+if [ ! -x "$(command -v dig)" ]
+then
+	apt-get install -y -qq dnsutils
+fi
 
 echo -e " ++++ dnsvalidator"
 
@@ -187,7 +239,10 @@ go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
 echo -e " ++++ dotdotpwn"
 
-apt-get install -y -qq dotdotpwn
+if [ ! -x "$(command -v dotdotpwn)" ]
+then
+	apt-get install -y -qq dotdotpwn
+fi
 
 echo -e " ++++ ffuf"
 
@@ -195,14 +250,9 @@ go install -v github.com/ffuf/ffuf@latest
 
 echo -e " ++++ findomain"
 
-file="/usr/local/bin/findomain"
+curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o /usr/local/bin/findomain
 
-curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o ${file}
-
-if [ -f ${file} ]
-then
-	chmod u+x ${file}
-fi
+chmod +x /usr/local/bin/findomain
 
 echo -e " ++++ gin"
 
@@ -214,7 +264,10 @@ go install -v github.com/sensepost/gowitness@latest
 
 echo -e " ++++  grep"
 
-apt-get install -y -qq grep
+if [ ! -x "$(command -v grep)" ]
+then
+	apt-get install -y -qq grep
+fi
 
 echo -e " ++++ hakrevdns"
 
@@ -226,7 +279,10 @@ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 echo -e " ++++ jq"
 
-apt-get install -y -qq jq
+if [ ! -x "$(command -v jq)" ]
+then
+	apt-get install -y -qq jq
+fi
 
 echo -e " ++++ kiterunner"
 
@@ -236,11 +292,17 @@ rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
 
 echo -e " ++++ masscan"
 
-apt-get install -y -qq masscan
+if [ ! -x "$(command -v masscan)" ]
+then
+	apt-get install -y -qq masscan
+fi
 
 echo -e " ++++ massdns"
 
-apt-get install -y -qq massdns
+if [ ! -x "$(command -v massdns)" ]
+then
+	apt-get install -y -qq massdns
+fi
 
 echo -e " ++++ naabu"
 
@@ -249,17 +311,23 @@ go install -v github.com/projectdiscovery/naabu/cmd/naabu@latest
 
 echo -e " ++++ net-tools"
 
-apt-get install -y -qq net-tools
+if [ ! -x "$(command -v ifconfig)" ]
+then
+	apt-get install -y -qq net-tools
+fi
 
 echo -e " ++++ nmap"
 
-apt-get install -y -qq nmap
+if [ ! -x "$(command -v nmap)" ]
+then
+	apt-get install -y -qq nmap
+fi
 
 echo -e " ++++ nmap-utils"
 
 curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/merge-nmap-xml -o /usr/local/bin/merge-nmap-xml
 
-curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/merge-nmap-xml -o /usr/local/bin/parse-nmap-xml
+curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/parse-nmap-xml -o /usr/local/bin/parse-nmap-xml
 
 chmod +x /usr/local/bin/merge-nmap-xml /usr/local/bin/parse-nmap-xml
 
@@ -313,7 +381,10 @@ go install -v github.com/enenumxela/urlx/cmd/urlx@latest
 
 echo -e " ++++ wafw00f"
 
-apt-get install -y -qq wafw00f
+if [ ! -x "$(command -v wafw00f)" ]
+then
+	apt-get install -y -qq wafw00f
+fi
 
 echo -e " ++++ wappalyzer"
 
@@ -329,15 +400,24 @@ fi
 
 echo -e " ++++ whatweb"
 
-apt-get install -y -qq whatweb
+if [ ! -x "$(command -v whatweb)" ]
+then
+	apt-get install -y -qq whatweb
+fi
 
 echo -e " ++++ whois"
 
-apt-get install -y -qq whois
+if [ ! -x "$(command -v whois)" ]
+then
+	apt-get install -y -qq whois
+fi
 
 echo -e " ++++ wpscan"
 
-apt-get install -y -qq wpscan
+if [ ! -x "$(command -v wpscan)" ]
+then
+	apt-get install -y -qq wpscan
+fi
 
 echo -e " ++++ wuzz"
 
@@ -355,20 +435,8 @@ then
 	mkdir -p ${wordlists}
 fi
 
-echo -e " ++++ blechschmidt's massdns resolvers.txt"
+echo -e " ++++ WordlistsX"
 
-curl -sL https://raw.githubusercontent.com/blechschmidt/massdns/master/lists/resolvers.txt -o ${wordlists}/resolvers.txt
-
-echo -e " ++++ leaky-paths"
-
-curl -sL https://raw.githubusercontent.com/ayoubfathi/leaky-paths/main/leaky-paths.txt -o ${wordlists}/leaky-paths.txt
-
-echo -e " ++++ permutations"
-
-curl -sL https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4/raw/df5ef9e898fa4598e83263925f49d6fe6242ddf1/permutations_list.txt -o ${wordlists}/permutations.txt
-
-echo -e " ++++ SecLists"
-
-git clone https://github.com/danielmiessler/SecLists.git ${wordlists}/SecLists
+git clone "https://github.com/enenumxela/wordlistsx.git" "${wordlists}/WordlistsX"
 
 # }} Wordlists

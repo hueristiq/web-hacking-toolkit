@@ -1,7 +1,7 @@
 FROM kalilinux/kali-rolling:latest
 
-ARG HOME=/root
-ARG DEBIAN_FRONTEND=noninteractive
+# ARG HOME=/root
+# ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
 	# up(date|grade)
@@ -19,6 +19,7 @@ RUN \
 		libxss1 \
 		locales \
 		apt-utils \
+		p7zip-full \
 		build-essential && \
 	# install/generate locales
 	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
@@ -45,11 +46,11 @@ ENV HOME="${HOME}" \
 	PATH="$PATH:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin:${HOME}/scripts"
 
 COPY scripts $HOME/scripts
-COPY configurations.tar.gz /tmp/configurations.tar.gz
+COPY configurations.7z /tmp/configurations.7z
 
 RUN \
 	# extract configurations
-	tar -xzf /tmp/configurations.tar.gz -C /tmp && \
+	7z x /tmp/configurations.7z -o/tmp && \
 	# run setup scripts
 	for script in $(find $HOME/scripts/setup -maxdepth 1 -type f -print | sort); \
 	do \
