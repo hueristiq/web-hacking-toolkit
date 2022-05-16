@@ -33,7 +33,7 @@
 	</a>
 </p>
 
-A web hacking toolkit docker image with GUI applications support.
+A web hacking toolkit (docker image).
 
 ## Resources
 
