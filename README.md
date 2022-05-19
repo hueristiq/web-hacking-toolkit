@@ -71,7 +71,7 @@ docker run \
 	-p 22:22 \
 	-v $(pwd)/data:/root/data \
 	signedsecurity/web-hacking-toolkit \
-	/bin/bash
+	/bin/zsh
 ```
 ### Docker Compose
 
@@ -103,7 +103,7 @@ docker-compose up
 Attach shell:
 
 ```bash
-docker-compose exec web-hacking-toolkit /bin/bash
+docker-compose exec web-hacking-toolkit /bin/zsh
 ```
 
 ### Build from Source
@@ -160,6 +160,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [cdncheck](https://github.com/enenumxela/cdncheck) | A CLI wrapper for ProjectDiscovery's cdncheck library - "Helper library that checks if a given IP belongs to known CDN ranges (akamai, cloudflare, incapsula and sucuri)". |
 | [commix](https://github.com/commixproject/commix) | Automated All-in-One OS Command Injection Exploitation Tool. |
 | [crlfuzz](https://github.com/dwisiswant0/crlfuzz) | A fast tool to scan CRLF vulnerability written in Go |
+| [crobat](https://github.com/cgboal/sonarsearch) | A rapid API for the Project Sonar dataset |
 | [curl](https://github.com/curl/curl) | A command line tool and library for transferring data with URL syntax, supporting HTTP, HTTPS, FTP, FTPS, GOPHER, TFTP, SCP, SFTP, SMB, TELNET, DICT, LDAP, LDAPS, MQTT, FILE, IMAP, SMTP, POP3, RTSP and RTMP. libcurl offers a myriad of powerful features |
 | [dalfox](https://github.com/hahwul/dalfox) | waning_crescent_moonfox_face DalFox(Finder Of XSS) / Parameter Analysis and XSS Scanning tool based on golang |
 | dnsutils | - |
@@ -170,6 +171,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
 | [gin](https://github.com/sbp/gin) | Git index file parser, using python3 |
 | [gowitness](https://github.com/sensepost/gowitness) | gowitness - a golang, web screenshot utility using Chrome Headless |
+| [gotator](https://github.com/Josue87/gotator) | Gotator is a tool to generate DNS wordlists through permutations. |
 | [grep](https://www.gnu.org/software/grep/) | Grep searches one or more input files for lines containing a match to a specified pattern. |
 | [hakrevdns](https://github.com/hakluke/hakrevdns) | Small, fast, simple tool for performing reverse DNS lookups en masse. |
 | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |

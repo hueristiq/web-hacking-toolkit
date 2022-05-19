@@ -172,13 +172,13 @@ then
 	mkdir -p ${tools}
 fi
 
-echo -e " ++++ amass"
+# echo -e " ++++ amass"
 
-go install -v github.com/OWASP/Amass/v3/...@latest
+# go install -v github.com/OWASP/Amass/v3/...@latest
 
-echo -e " ++++ anew"
+# echo -e " ++++ anew"
 
-go install -v github.com/tomnomnom/anew@latest
+# go install -v github.com/tomnomnom/anew@latest
 
 echo -e " ++++ arjun"
 
@@ -207,6 +207,10 @@ apt-get install -y -qq commix
 echo -e " ++++ crlfuzz"
 
 go install -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
+
+# echo -e " ++++ crobat"
+
+# go install github.com/cgboal/sonarsearch/cmd/crobat@latest
 
 echo -e " ++++ curl"
 
@@ -248,11 +252,11 @@ echo -e " ++++ ffuf"
 
 go install -v github.com/ffuf/ffuf@latest
 
-echo -e " ++++ findomain"
+# echo -e " ++++ findomain"
 
-curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o /usr/local/bin/findomain
+# curl -sL https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -o /usr/local/bin/findomain
 
-chmod +x /usr/local/bin/findomain
+# chmod +x /usr/local/bin/findomain
 
 echo -e " ++++ gin"
 
@@ -262,6 +266,10 @@ echo -e " ++++ gowitness"
 
 go install -v github.com/sensepost/gowitness@latest
 
+# echo -e " ++++ gotator"
+
+# go install github.com/Josue87/gotator@latest
+
 echo -e " ++++  grep"
 
 if [ ! -x "$(command -v grep)" ]
@@ -269,13 +277,13 @@ then
 	apt-get install -y -qq grep
 fi
 
-echo -e " ++++ hakrevdns"
+# echo -e " ++++ hakrevdns"
 
-go install -v github.com/hakluke/hakrevdns@latest
+# go install -v github.com/hakluke/hakrevdns@latest
 
-echo -e " ++++ httpx"
+# echo -e " ++++ httpx"
 
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+# go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 echo -e " ++++ jq"
 
@@ -290,24 +298,24 @@ curl -sL https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiteru
 tar -xzf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz -C /usr/local && \
 rm -rf /tmp/kiterunner_1.0.2_linux_arm64.tar.gz
 
-echo -e " ++++ masscan"
+# echo -e " ++++ masscan"
 
-if [ ! -x "$(command -v masscan)" ]
-then
-	apt-get install -y -qq masscan
-fi
+# if [ ! -x "$(command -v masscan)" ]
+# then
+# 	apt-get install -y -qq masscan
+# fi
 
-echo -e " ++++ massdns"
+# echo -e " ++++ massdns"
 
-if [ ! -x "$(command -v massdns)" ]
-then
-	apt-get install -y -qq massdns
-fi
+# if [ ! -x "$(command -v massdns)" ]
+# then
+# 	apt-get install -y -qq massdns
+# fi
 
-echo -e " ++++ naabu"
+# echo -e " ++++ naabu"
 
-apt-get install -y -qq libpcap-dev
-go install -v github.com/projectdiscovery/naabu/cmd/naabu@latest
+# apt-get install -y -qq libpcap-dev
+# go install -v github.com/projectdiscovery/naabu/cmd/naabu@latest
 
 echo -e " ++++ net-tools"
 
@@ -316,12 +324,12 @@ then
 	apt-get install -y -qq net-tools
 fi
 
-echo -e " ++++ nmap"
+# echo -e " ++++ nmap"
 
-if [ ! -x "$(command -v nmap)" ]
-then
-	apt-get install -y -qq nmap
-fi
+# if [ ! -x "$(command -v nmap)" ]
+# then
+# 	apt-get install -y -qq nmap
+# fi
 
 echo -e " ++++ nmap-utils"
 
@@ -331,9 +339,9 @@ curl -sL https://raw.githubusercontent.com/enenumxela/nmap-utils/main/parse-nmap
 
 chmod +x /usr/local/bin/merge-nmap-xml /usr/local/bin/parse-nmap-xml
 
-echo -e " ++++ nuclei"
+# echo -e " ++++ nuclei"
 
-go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+# go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 echo -e " ++++ ping"
 
@@ -343,17 +351,17 @@ echo -e " ++++ ps.sh"
 
 curl -s https://raw.githubusercontent.com/enenumxela/ps.sh/main/install.sh | bash -
 
-echo -e " ++++ puredns"
+# echo -e " ++++ puredns"
 
-go install -v github.com/d3mondev/puredns/v2@latest
+# go install -v github.com/d3mondev/puredns/v2@latest
 
 echo -e " ++++ sigrawl3r"
 
 go install -v github.com/signedsecurity/sigrawl3r/cmd/sigrawl3r@latest
 
-echo -e " ++++ sigsubfind3r"
+# echo -e " ++++ sigsubfind3r"
 
-go install -v github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest
+# go install -v github.com/signedsecurity/sigsubfind3r/cmd/sigsubfind3r@latest
 
 echo -e " ++++ sigurlfind3r"
 
@@ -371,9 +379,9 @@ echo -e " ++++ subdomains.sh"
 
 curl -s https://raw.githubusercontent.com/enenumxela/subdomains.sh/main/install.sh | bash -
 
-echo -e " ++++ subfinder"
+# echo -e " ++++ subfinder"
 
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+# go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 echo -e " ++++ urlx"
 
