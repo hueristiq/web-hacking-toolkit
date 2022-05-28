@@ -139,8 +139,8 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 ### System
 
 * Terminal
-	* shell (ZSH)
-	* Session Management (TMUX)
+	* Shell (ZSH)
+	* Session Manager (TMUX)
 * Text Editor
 	* vim
 * Browser
