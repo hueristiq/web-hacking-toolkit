@@ -1,55 +1,63 @@
 #!/usr/bin/env bash
 
-USER_LOCAL_BIN="${HOME}/.local/bin"
-
-if [ ! -d ${USER_LOCAL_BIN} ]
-then
-	mkdir -p ${USER_LOCAL_BIN}
-fi
-
 CONFIGURATIONS="/tmp/configurations"
 
-# {{ System Setup
+export DEBIAN_FRONTEND=noninteractive
+
+echo -e " + up(date|grade)"
+
+apt-get update && apt-get upgrade -qq -y
+
+echo -e " + install essentials"
+
+apt-get install -y -qq --no-install-recommends \
+	tar \
+	git \
+	curl \
+	wget \
+	tree \
+	unzip \
+	xauth \
+	libxss1 \
+	apt-utils \
+	p7zip-full \
+	build-essential
+
+echo -e " + install/generate locales"
+
+apt-get install -y -qq --no-install-recommends locales
+localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+
+echo -e " + extract configuration"
+
+7z x /tmp/configurations.7z -o/tmp 
 
 echo -e " + System Setup"
 
-# {{ Terminal
-
 echo -e " +++++ Terminal"
-
-# {{ zsh
 
 echo -e " +++++++++ Shell (zsh)"
 
-# install zsh
 if [ ! -x "$(command -v zsh)" ]
 then
 	apt-get install -y -qq zsh
 fi
 
-# make zsh default shell
 if [ "${SHELL}" != "$(which zsh)" ]
 then
 	chsh -s $(which zsh) ${USER}
 fi
 
-# oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended 
 
-# zsh-autosuggestions
-git clone "https://github.com/zsh-users/zsh-autosuggestions" "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-# zsh-syntax-highlighting
-git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-# set up dotfiles
 mv ${CONFIGURATIONS}/.zshrc ${HOME}/.zshrc
 mv ${CONFIGURATIONS}/.zprofile ${HOME}/.zprofile
 mv ${CONFIGURATIONS}/.hushlogin ${HOME}/.hushlogin
 
-# }} zsh
-# {{ tmux
-
-echo -e " +++++++++ Multiplexer (tmux)"
+echo -e " +++++++++ Session Manager (tmux)"
 
 if [ ! -x "$(command -v tmux)" ]
 then
@@ -60,7 +68,10 @@ mv ${CONFIGURATIONS}/.tmux.conf ${HOME}/.tmux.conf
 
 TMUX_PLUGINS="${HOME}/.tmux/plugins"
 
-mkdir -p ${TMUX_PLUGINS}
+if [ ! -d ${TMUX_PLUGINS} ]
+then
+	mkdir -p ${TMUX_PLUGINS}
+fi
 
 git clone https://github.com/tmux-plugins/tpm.git ${TMUX_PLUGINS}/tpm
 
@@ -70,14 +81,42 @@ then
 	${TMUX_PLUGINS}/tpm/bin/install_plugins
 fi
 
-# }} tmux
+echo -e " +++++ Browser"
 
-# }} Terminal
-# {{ Text Editor
+echo -e " +++++++++ chrome"
+
+if [ ! -x "$(command -v google-chrome)" ]
+then
+	curl -sL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/google-chrome-stable_current_amd64.deb
+
+	apt-get install -y -qq /tmp/google-chrome-stable_current_amd64.deb
+fi
+
+echo -e " +++++++++ firefox"
+
+if [ ! -x "$(command -v firefox)" ]
+then
+	apt-get install -y -qq firefox-esr ca-certificates libcanberra-gtk3-module
+fi
+
+mv -f ${CONFIGURATIONS}/.mozilla ${HOME}/.mozilla
+
+echo -e " +++++ Remote Connection"
+
+echo -e " +++++++++ ssh"
+
+if [ ! -x "$(command -v ssh)" ]
+then
+	apt-get install -y -qq openssh-server
+fi
+
+sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+echo -e " + Development"
 
 echo -e " +++++ Text Editor"
-
-# {{ vim
 
 echo -e " +++++++++ vim"
 
@@ -105,63 +144,55 @@ git clone https://github.com/tpope/vim-fugitive.git ${VIM_BUNDLE}/vim-fugitive
 
 mv ${CONFIGURATIONS}/.vimrc ${HOME}/.vim/vimrc
 
-# }} vim
+echo -e " + language|frameworks|runtime"
 
-# }} Text Editor
-# {{ Browser 
+echo -e " +++++ go"
 
-echo -e " +++++ Browser"
-
-# {{ chrome
-
-echo -e " +++++++++ chrome"
-
-if [ ! -x "$(command -v google-chrome)" ]
+if [ ! -x "$(command -v go)" ]
 then
-	curl -sL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/google-chrome-stable_current_amd64.deb
-
-	apt-get install -y -qq /tmp/google-chrome-stable_current_amd64.deb
+	if [ ! -f /tmp/go1.18.linux-amd64.tar.gz ]
+	then
+		curl -sL https://golang.org/dl/go1.18.linux-amd64.tar.gz -o /tmp/go1.18.linux-amd64.tar.gz
+	fi
+	if [ -f /tmp/go1.18.linux-amd64.tar.gz ]
+	then
+		tar -xzf /tmp/go1.18.linux-amd64.tar.gz -C /usr/local
+		rm -rf /tmp/go1.18.linux-amd64.tar.gz
+	fi
 fi
 
-# }} chrome
-# {{ firefox
+(grep -q "export PATH=\$PATH:/usr/local/go/bin" ~/.profile) || {
+	echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+}
+(grep -q "export PATH=\$PATH:\${HOME}/go/bin" ~/.profile) || {
+	echo "export PATH=\$PATH:\${HOME}/go/bin" >> ~/.profile
+}
 
-echo -e " +++++++++ firefox"
+source ~/.profile
 
-# install firefox
-if [ ! -x "$(command -v firefox)" ]
+echo -e " +++++ python3"
+
+if [ ! -x "$(command -v python3)" ] || [ ! -x "$(command -v pip3)" ]
 then
-	apt-get install -y -qq firefox-esr ca-certificates libcanberra-gtk3-module
+	apt-get install -y -qq python3 python3-dev python3-pip python3-venv
 fi
 
-mv -f ${CONFIGURATIONS}/.mozilla ${HOME}/.mozilla
+echo -e " +++++ node, npm & yarn"
 
-# }} firefox
-
-# }} Browser
-# {{ Remote Connection
-
-echo -e " +++++ Remote Connection"
-
-# {{ ssh
-
-echo -e " +++++++++ ssh"
-
-if [ ! -x "$(command -v ssh)" ]
+if [ ! -x "$(command -v node)" ] || [ ! -x "$(command -v pip3)" ]
 then
-	apt-get install -y -qq openssh-server
+	curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+	apt-get install -y -qq  nodejs
 fi
+if [ -x "$(command -v npm)" ]
+then
+	npm install -g npm@latest
 
-sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-# }} ssh
-
-# }} Remote Connection
-
-# }} System Setup
-# {{ Tools
+	if [ ! -x "$(command -v yarn)" ]
+	then
+		npm install -g yarn
+	fi
+fi
 
 echo -e " + Tools"
 
@@ -431,9 +462,6 @@ echo -e " ++++ wuzz"
 
 go install -v github.com/asciimoo/wuzz@latest
 
-# }} Tools
-# {{ Wordlists
-
 echo -e " + Wordlists"
 
 wordlists="${HOME}/wordlists"
@@ -447,4 +475,19 @@ echo -e " ++++ WordlistsX"
 
 git clone "https://github.com/enenumxela/wordlistsx.git" "${wordlists}/WordlistsX"
 
-# }} Wordlists
+echo -e " + Clean UP"
+
+rm -rf $HOME/scripts/setup
+
+rm -rf /tmp/configurations*
+
+for task in autoremove autoclean clean
+do
+	apt-get -y -qq ${task}
+done
+
+rm -rf /var/lib/apt/lists/*
+
+go clean -cache 
+go clean -testcache
+go clean -modcache
