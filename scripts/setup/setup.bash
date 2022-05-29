@@ -21,6 +21,7 @@ apt-get install -y -qq --no-install-recommends \
 	libxss1 \
 	apt-utils \
 	p7zip-full \
+	ca-certificates \
 	build-essential
 
 echo -e " + install/generate locales"
