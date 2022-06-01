@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-cd "${HOME}/wordlists"
-find . -type f -name "*.7z" -exec 7z x {} \;
-cd -

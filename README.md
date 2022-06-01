@@ -71,7 +71,7 @@ docker run \
 	-p 22:22 \
 	-v $(pwd)/data:/root/data \
 	signedsecurity/web-hacking-toolkit \
-	/bin/zsh
+	/bin/zsh -l
 ```
 ### Docker Compose
 
@@ -103,7 +103,7 @@ docker-compose up
 Attach shell:
 
 ```bash
-docker-compose exec web-hacking-toolkit /bin/zsh
+docker-compose exec web-hacking-toolkit /bin/zsh -l
 ```
 
 ### Build from Source

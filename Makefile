@@ -13,24 +13,30 @@ help:
 	@echo ""
 	@echo "*****************************************************************************"
 	@echo ""
-	@echo " 1. make compress-configurations ..... compress configurations."
-	@echo " 2. make extract-configurations ...... extract configurations."
-	@echo " 3. make build-image ................. build the image."
-	@echo " 4. make build ....................... compress configurations then,"
-	@echo "                                       build the image."
-	@echo " 5. make run ......................... run a container and attach a shell"
+	@echo " 1. make compress ......... compress configurations."
+	@echo " 2. make de-compress ...... extract configurations."
+	@echo " 3. make build-image ...... build the image."
+	@echo " 4. make build ............ compress configurations then,"
+	@echo "                            build the image."
+	@echo " 5. make run .............. run a container and attach a shell"
 	@echo ""
 
-compress-configurations:
-	7z a configurations.7z configurations
+compress:
+	@echo -e "\n + 7z compress scripts"; \
+	7z a scripts.7z scripts; \
+	echo -e "\n + 7z compress dotfiles"; \
+	7z a dotfiles.7z dotfiles
 
-extract-configurations:
-	7z x configurations.7z
+de-compress:
+	@echo -e "\n + 7z de-compress scripts"; \
+	7z x scripts.7z; \
+	echo -e "\n + 7z de-compress dotfiles"; \
+	7z x dotfiles.7z
 
 build-image:
 	docker build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
 
-build: compress-configurations build-image
+build: compress build-image
 
 run:
 	@docker run \
@@ -42,4 +48,4 @@ run:
 		-p 22:22 \
 		-v $(pwd)/data:/root/data \
 		signedsecurity/web-hacking-toolkit \
-		/bin/zsh
+		/bin/zsh -l

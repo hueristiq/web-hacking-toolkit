@@ -11,9 +11,10 @@
 
 .dockerignore
 
-# Configurations
+# Uncompressed (dotfiles & scripts)
 
-configurations
+dotfiles
+scripts
 
 # Data
 
