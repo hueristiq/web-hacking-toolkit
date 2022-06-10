@@ -138,8 +138,8 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 
 * System Setup
 	* Terminal
-		* Shell (ZSH)
-		* Session Manager (TMUX)
+		* Shell ([ZSH](https://www.zsh.org/))
+		* Session Manager ([TMUX](https://github.com/tmux/tmux))
 	* Browser
 		* chrome
 		* firefox
@@ -179,7 +179,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [hakrevdns](https://github.com/hakluke/hakrevdns) | Small, fast, simple tool for performing reverse DNS lookups en masse. |
 	| [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
 	| [jq](https://github.com/stedolan/jq) | Command-line JSON processor |
-	| [kiterunner](https://github.com/assetnote/kiterunner) | Contextual Content Discovery Tool |
+	<!-- | [kiterunner](https://github.com/assetnote/kiterunner) | Contextual Content Discovery Tool | -->
 	| [masscan](https://github.com/robertdavidgraham/masscan) | TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes. |
 	| [massdns](https://github.com/blechschmidt/massdns) | A high-performance DNS stub resolver. |
 	| [naabu](https://github.com/projectdiscovery/naabu) | A fast port scanner written in go with focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests |
@@ -205,6 +205,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [whois](https://github.com/rfc1036/whois) | client for the whois directory service |
 	| [wpscan](https://github.com/wpscanteam/wpscan) | WordPress Security Scanner |
 	| [wuzz](https://github.com/asciimoo/wuzz) | Interactive cli tool for HTTP inspection |
+	| [OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/) | an open-source web application security scanner. |
 
 * Wordlists
 

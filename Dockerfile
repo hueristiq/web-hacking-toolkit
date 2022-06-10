@@ -29,7 +29,7 @@ RUN \
 
 # copy the files
 COPY scripts.7z ${WHT}/scripts.7z 
-COPY dotfiles.7z ${WHT}/dotfiles.7z
+COPY configurations.7z ${WHT}/configurations.7z
 
 RUN \
 	# install p7zip-full

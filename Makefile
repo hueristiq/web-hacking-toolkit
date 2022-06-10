@@ -24,14 +24,14 @@ help:
 compress:
 	@echo -e "\n + 7z compress scripts"; \
 	7z a scripts.7z scripts; \
-	echo -e "\n + 7z compress dotfiles"; \
-	7z a dotfiles.7z dotfiles
+	echo -e "\n + 7z compress configurations"; \
+	7z a configurations.7z configurations
 
 de-compress:
 	@echo -e "\n + 7z de-compress scripts"; \
 	7z x scripts.7z; \
-	echo -e "\n + 7z de-compress dotfiles"; \
-	7z x dotfiles.7z
+	echo -e "\n + 7z de-compress configurations"; \
+	7z x configurations.7z
 
 build-image:
 	docker build . -f Dockerfile -t signedsecurity/web-hacking-toolkit
@@ -46,6 +46,6 @@ run:
 		--name web-hacking-toolkit \
 		--hostname web-hacking-toolkit \
 		-p 22:22 \
-		-v $(pwd)/data:/root/data \
+		-v "$(pwd)"/data:/root/data \
 		signedsecurity/web-hacking-toolkit \
 		/bin/zsh -l
