@@ -1,18 +1,19 @@
-name: CI to Docker Hub 🎉
+name: release 🎉
 
 on:
-    push:
-        tags:
-            - "v*.*.*"
+    schedule:
+        - cron: "0 0 * * MON"
     workflow_dispatch:
 
 jobs:
-    build:
+    release:
         runs-on: ubuntu-latest
         steps:
             -
-                name: Checkout
+                name: Checkout the code
                 uses: actions/checkout@v3
+                with:
+                    fetch-depth: 0
             -
                 name: Set up Docker Buildx
                 id: buildx
@@ -31,10 +32,13 @@ jobs:
                 with:
                     username: ${{ secrets.DOCKER_HUB_USERNAME }}
                     password: ${{ secrets.DOCKER_HUB_TOKEN }}
-            -
-                name: Get the current pushed tag
-                id: vars
-                run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+            - 
+                name: Get the current date
+                id: date
+                uses: nanzm/get-time-action@v1.1
+                with:
+                    timeZone: 8
+                    format: 'YYYY-MM-DD'
             -
                 name: Build and push
                 id: docker_build
@@ -44,7 +48,7 @@ jobs:
                     file: ./Dockerfile
                     builder: ${{ steps.buildx.outputs.name }}
                     push: true
-                    tags: hueristiq/web-hacking-toolkit:latest,hueristiq/web-hacking-toolkit:${{ steps.vars.outputs.tag }}
+                    tags: hueristiq/web-hacking-toolkit:latest,hueristiq/web-hacking-toolkit:${{ steps.date.outputs.time }}
                     cache-from: type=local,src=/tmp/.buildx-cache
                     cache-to: type=local,dest=/tmp/.buildx-cache
             -

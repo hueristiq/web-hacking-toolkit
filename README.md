@@ -1,35 +1,35 @@
 <h1 align="center">Web Hacking ToolKit</h1>
 
 <p align="center">
-	<a href="https://github.com/signedsecurity/web-hacking-toolkit/actions">
-		<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/signedsecurity/web-hacking-toolkit/🎉%20CI%20to%20Docker%20Hub">
+	<a href="https://github.com/hueristiq/web-hacking-toolkit/actions">
+		<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/hueristiq/web-hacking-toolkit/🎉%20CI%20to%20Docker%20Hub">
 	</a>
-	<a href="https://github.com/signedsecurity/web-hacking-toolkit/issues?q=is:issue+is:open">
-		<img alt="GitHub Open Issues" src="https://img.shields.io/github/issues-raw/signedsecurity/web-hacking-toolkit.svg">
+	<a href="https://github.com/hueristiq/web-hacking-toolkit/issues?q=is:issue+is:open">
+		<img alt="GitHub Open Issues" src="https://img.shields.io/github/issues-raw/hueristiq/web-hacking-toolkit.svg">
 	</a>
-	<a href="https://github.com/signedsecurity/web-hacking-toolkit/issues?q=is:issue+is:closed">
-		<img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed-raw/signedsecurity/web-hacking-toolkit.svg">
+	<a href="https://github.com/hueristiq/web-hacking-toolkit/issues?q=is:issue+is:closed">
+		<img alt="GitHub Closed Issues" src="https://img.shields.io/github/issues-closed-raw/hueristiq/web-hacking-toolkit.svg">
 	</a>
-	<a href="https://github.com/signedsecurity/web-hacking-toolkit/graphs/contributors">
-		<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/signedsecurity/web-hacking-toolkit">
+	<a href="https://github.com/hueristiq/web-hacking-toolkit/graphs/contributors">
+		<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/hueristiq/web-hacking-toolkit">
 	</a>
-	<a href="https://github.com/signedsecurity/web-hacking-toolkit/blob/master/LICENSE">
-		<img alt="GitHub" src="https://img.shields.io/github/license/signedsecurity/web-hacking-toolkit">
+	<a href="https://github.com/hueristiq/web-hacking-toolkit/blob/master/LICENSE">
+		<img alt="GitHub" src="https://img.shields.io/github/license/hueristiq/web-hacking-toolkit">
 	</a>
 </p>
 
 <p align="center">
-	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Automated build" src="https://img.shields.io/docker/automated/signedsecurity/web-hacking-toolkit">
+	<a href="https://hub.docker.com/r/hueristiq/web-hacking-toolkit/">
+		<img alt="Docker Automated build" src="https://img.shields.io/docker/automated/hueristiq/web-hacking-toolkit">
 	</a>
-	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/signedsecurity/web-hacking-toolkit">
+	<a href="https://hub.docker.com/r/hueristiq/web-hacking-toolkit/">
+		<img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/hueristiq/web-hacking-toolkit">
 	</a>
-	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Starts" src="https://img.shields.io/docker/stars/signedsecurity/web-hacking-toolkit">
+	<a href="https://hub.docker.com/r/hueristiq/web-hacking-toolkit/">
+		<img alt="Docker Starts" src="https://img.shields.io/docker/stars/hueristiq/web-hacking-toolkit">
 	</a>
-	<a href="https://hub.docker.com/r/signedsecurity/web-hacking-toolkit/">
-		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/signedsecurity/web-hacking-toolkit/latest">
+	<a href="https://hub.docker.com/r/hueristiq/web-hacking-toolkit/">
+		<img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/hueristiq/web-hacking-toolkit/latest">
 	</a>
 </p>
 
@@ -56,7 +56,7 @@ A web hacking toolkit (docker image).
 Pull the image from Docker Hub:
 
 ```bash
-docker pull signedsecurity/web-hacking-toolkit
+docker pull hueristiq/web-hacking-toolkit
 ```
 
 Run a container and attach a shell:
@@ -70,7 +70,7 @@ docker run \
 	--hostname web-hacking-toolkit \
 	-p 22:22 \
 	-v $(pwd)/data:/root/data \
-	signedsecurity/web-hacking-toolkit \
+	hueristiq/web-hacking-toolkit \
 	/bin/zsh -l
 ```
 ### Docker Compose
@@ -82,7 +82,7 @@ version: "3.9"
 
 services:
     web-hacking-toolkit:
-        image: signedsecurity/web-hacking-toolkit
+        image: hueristiq/web-hacking-toolkit
         container_name: web-hacking-toolkit
         hostname: web-hacking-toolkit
         stdin_open: true
@@ -111,7 +111,7 @@ docker-compose exec web-hacking-toolkit /bin/zsh -l
 Clone this repository and build the image:
 
 ```bash
-git clone https://github.com/signedsecurity/web-hacking-toolkit.git && \
+git clone https://github.com/hueristiq/web-hacking-toolkit.git && \
 cd web-hacking-toolkit && \
 make build-image
 ```
@@ -170,6 +170,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [dnsvalidator](https://github.com/vortexau/dnsvalidator) | Maintains a list of IPv4 DNS servers by verifying them against baseline servers, and ensuring accurate responses. |
 	| [dnsx](https://github.com/projectdiscovery/dnsx) | dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers. |
 	| [dotdotpwn](https://github.com/wireghoul/dotdotpwn) | DotDotPwn - The Directory Traversal Fuzzer |
+	| [duplicut](https://github.com/nil0x42/duplicut) | Quickly dedupe massive wordlists, without changing the order |
 	| [ffuf](https://github.com/ffuf/ffuf) | Fast web fuzzer written in Go |
 	| [findomain](https://github.com/Edu4rdSHL/findomain) | The fastest 
 	| [gin](https://github.com/sbp/gin) | Git index file parser, using python3 |
@@ -177,6 +178,13 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [gotator](https://github.com/Josue87/gotator) | Gotator is a tool to generate DNS wordlists through permutations. |
 	| [grep](https://www.gnu.org/software/grep/) | Grep searches one or more input files for lines containing a match to a specified pattern. |
 	| [hakrevdns](https://github.com/hakluke/hakrevdns) | Small, fast, simple tool for performing reverse DNS lookups en masse. |
+	| [hqcrawl3r](https://github.com/hueristiq/hqcrawl3r) | A fast web crawler. |
+	| [hqnotifi3r](https://github.com/hueristiq/hqnotifi3r) | A helper utility to send messages from CLI to Slack.. |
+	| [hqsubfind3r](https://github.com/hueristiq/hqsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
+	| [hqs3scann3r](https://github.com/hueristiq/hqs3scann3r) | A tool to scan AWS S3 bucket permissions. |
+	| [hqurl](https://github.com/hueristiq/hqurl) | A go(golang) utility for URLs parsing & pull out bits of the URLS. |
+	| [hqurlfind3r](https://github.com/hueristiq/hqurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
+	| [hqurlscann3r](https://github.com/hueristiq/hqurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
 	| [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
 	| [jq](https://github.com/stedolan/jq) | Command-line JSON processor |
 	| [masscan](https://github.com/robertdavidgraham/masscan) | TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes. |
@@ -189,14 +197,10 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [ping](https://github.com/iputils/iputils) | Tools to test the reachability of network hosts. |
 	| [ps.sh](https://github.com/enenumxela/ps.sh) | A wrapper around tools used for port scanning(nmap, naabu & masscan), the goal being reducing scan time, increasing scan efficiency and automating the workflow. |
 	| [puredns](https://github.com/d3mondev/puredns) | Puredns is a fast domain resolver and subdomain bruteforcing tool that can accurately filter out wildcard subdomains and DNS poisoned entries.  |
-	| [sigrawl3r](https://github.com/signedsecurity/sigrawl3r) | A fast web crawler. |
-	| [sigsubfind3r](https://github.com/signedsecurity/sigsubfind3r) | A subdomain discovery tool - it gathers a list of subdomains passively using various online sources. |
-	| [sigurlfind3r](https://github.com/signedsecurity/sigurlfind3r) | A passive reconnaissance tool for known URLs discovery - it gathers a list of URLs passively using various online sources. |
-	| [sigurlscann3r](https://github.com/signedsecurity/sigurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
+	| [sqlitebrowser](https://sqlitebrowser.org/) | A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite. |
 	| [sqlmap](https://github.com/sqlmapproject/sqlmap) | Automatic SQL injection and database takeover tool |
-	| [subdomains.sh](https://github.com/enenumxela/subdomains.sh) | A wrapper around for subdomains gathering tools (amass, subfinder, findomain & sigsubfind3r) to increase gathering efficiency and automating the workflow. |
+	| [subdomains.sh](https://github.com/hueristiq/subdomains.sh) | A wrapper around tools used for subdomain enumeration, to automate the workflow, on a given domain, written in bash. |
 	| [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
-	| [urlx](https://github.com/enenumxela/urlx) | A go(golang) utility for URLs parsing & pull out bits of the URLS. |
 	| [waf00f](https://github.com/EnableSecurity/wafw00f) | The Web Application Firewall Fingerprinting Tool. |
 	| [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
 	| whois | whois - client for the whois directory service |
@@ -210,8 +214,9 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 
 	| Wordlist | Description |
 	| :------- | :---------- |
-	| [WordlistsX](https://github.com/enenumxela/wordlistsx.git) | A collection of wordlists generated by combining various common/popular wordlists. |
+	| [resolvers](https://github.com/hueristiq/resolvers.git) | An exhaustive list of DNS resolvers. |
+	| [wordlists](https://github.com/hueristiq/wordlists.git) | A collection of wordlists generated by combining various common/popular wordlists. |
 
 ## Contribution
 
-[Issues](https://github.com/signedsecurity/web-hacking-toolkit/issues) and [Pull Requests](https://github.com/signedsecurity/web-hacking-toolkit/pulls) are welcome!
+[Issues](https://github.com/hueristiq/web-hacking-toolkit/issues) and [Pull Requests](https://github.com/hueristiq/web-hacking-toolkit/pulls) are welcome!

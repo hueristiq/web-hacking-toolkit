@@ -1,16 +1,17 @@
 FROM kalilinux/kali-rolling:latest
 
-LABEL org.signedsecurity.image.authors="Alex Munene (enenumxela)"
+LABEL org.heuristiq.image.authors="Alex Munene (enenumxela)"
 
 ARG WHT=/etc/web-hacking-toolkit
 ARG HOME=/root
+ARG TOOLS=${HOME}/Tools
 ARG LOCAL_BIN=${HOME}/.local/bin
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV \
 	WHT=${WHT} \
 	HOME=${HOME} \
+	TOOLS=${TOOLS} \
 	LOCAL_BIN=${LOCAL_BIN}
 
 RUN \
@@ -21,6 +22,10 @@ RUN \
 	if [ ! -d ${WHT} ];\
 	then \
 		mkdir -p ${WHT};\
+	fi && \
+	if [ ! -d ${TOOLS} ];\
+	then \
+		mkdir -p ${TOOLS};\
 	fi && \
 	if [ ! -d ${LOCAL_BIN} ];\
 	then \
