@@ -161,6 +161,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [arjun](https://github.com/s0md3v/Arjun) | HTTP parameter discovery suite. |
 	| [Burp Suite Community](https://portswigger.net/burp) | The BurpSuite Project  community edition. |
 	| [cdncheck](https://github.com/enenumxela/cdncheck) | A CLI wrapper for ProjectDiscovery's cdncheck library - "Helper library that checks if a given IP belongs to known CDN ranges (akamai, cloudflare, incapsula and sucuri)". |
+	| [cero](https://github.com/glebarez/cero) | Scrape domain names from SSL certificates of arbitrary hosts |
 	| [commix](https://github.com/commixproject/commix) | Automated All-in-One OS Command Injection Exploitation Tool. |
 	| [crlfuzz](https://github.com/dwisiswant0/crlfuzz) | A fast tool to scan CRLF vulnerability written in Go |
 	| [crobat](https://github.com/cgboal/sonarsearch) | A rapid API for the Project Sonar dataset |
