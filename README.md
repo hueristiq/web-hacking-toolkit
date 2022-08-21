@@ -151,7 +151,6 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	* Languages
 		* go
 		* python3
-		* Node, NPM, Yarn
 * Tools
 
 	| Name | Description |
@@ -204,7 +203,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 	| [subdomains.sh](https://github.com/hueristiq/subdomains.sh) | A wrapper around tools used for subdomain enumeration, to automate the workflow, on a given domain, written in bash. |
 	| [subfinder](https://github.com/projectdiscovery/subfinder) | Subfinder is a subdomain discovery tool that discovers valid subdomains for websites. Designed as a passive framework to be useful for bug bounties and safe for penetration testing. |
 	| [waf00f](https://github.com/EnableSecurity/wafw00f) | The Web Application Firewall Fingerprinting Tool. |
-	| [wappalyzer](https://github.com/aliasio/wappalyzer) | Wappalyzer identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and more. |
+	| [webanalyze](https://github.com/rverton/webanalyze) | Port of [Wappalyzer](https://github.com/AliasIO/Wappalyzer) (uncovers technologies used on websites) to automate mass scanning. |
 	| whois | whois - client for the whois directory service |
 	| [whatweb](https://github.com/urbanadventurer/WhatWeb) | Next generation web scanner. |
 	| [whois](https://github.com/rfc1036/whois) | client for the whois directory service |
