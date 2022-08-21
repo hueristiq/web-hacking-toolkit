@@ -209,6 +209,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [hqurlscann3r](https://github.com/hueristiq/hqurlscann3r) | A web application attack surface mapping tool. It takes in a list of urls then performs numerous probes |
 | [httpx](https://github.com/projectdiscovery/httpx) | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. |
 | [interlace](https://github.com/codingo/Interlace) | Easily turn single threaded command line applications into a fast, multi-threaded application with CIDR and glob support. |
+| [joomscan](https://github.com/OWASP/joomscan) | OWASP Joomla Vulnerability Scanner Project |
 | [jq](https://github.com/stedolan/jq) | Command-line JSON processor |
 | [masscan](https://github.com/robertdavidgraham/masscan) | TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes. |
 | [massdns](https://github.com/blechschmidt/massdns) | A high-performance DNS stub resolver. |
