@@ -2,17 +2,18 @@ FROM kalilinux/kali-rolling:latest
 
 LABEL org.heuristiq.image.authors="Alex Munene (enenumxela)"
 
-ARG WHT=/etc/web-hacking-toolkit
 ARG HOME=/root
-ARG TOOLS=${HOME}/Tools
-ARG LOCAL_BIN=${HOME}/.local/bin
+ARG TOOLS=${HOME}/TOOLS
+ARG LOCALBIN=${HOME}/.local/bin
+ARG WHT=/etc/web-hacking-toolkit
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV \
 	WHT=${WHT} \
 	HOME=${HOME} \
 	TOOLS=${TOOLS} \
-	LOCAL_BIN=${LOCAL_BIN}
+	LOCALBIN=${LOCALBIN}
 
 RUN \
 	# up(date|grade)
@@ -27,9 +28,9 @@ RUN \
 	then \
 		mkdir -p ${TOOLS};\
 	fi && \
-	if [ ! -d ${LOCAL_BIN} ];\
+	if [ ! -d ${LOCALBIN} ];\
 	then \
-		mkdir -p ${LOCAL_BIN};\
+		mkdir -p ${LOCALBIN};\
 	fi
 
 # copy the files
@@ -52,6 +53,6 @@ RUN \
 	# make scrips executable
 	chmod +x /tmp/scripts/* && \
 	# move scripts to user bin
-	mv -f /tmp/scripts/* ${LOCAL_BIN}
+	mv -f /tmp/scripts/* ${LOCALBIN}
 
 WORKDIR $HOME
