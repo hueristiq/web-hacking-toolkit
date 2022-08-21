@@ -149,7 +149,18 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 
 			| Addons | Description |
 			| :------- | :---------- |
-			| [lists](https://github.com/hueristiq/lists.git) | A collection of lists for asset and content discovery. |
+			| [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/) | Automatically learns to block invisible trackers. |
+			| [Disable WebRTC](https://addons.mozilla.org/en-US/firefox/addon/happy-bonobo-disable-webrtc/) | WebRTC leaks your actual IP addresses from behind your VPN, by default. |
+			| [Shodan](https://addons.mozilla.org/en-US/firefox/addon/shodan-addon/) | The Shodan plugin tells you where the website is hosted (country, city), who owns the IP and what other services/ ports are open. |
+			| [Wappalyzer](https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/) | Identify technologies on websites. |
+			| [Bulk URL Opener](https://addons.mozilla.org/en-GB/firefox/addon/bulkurlopener/) | Allows user to open a list of url in one click. |
+			| [TWP - Translate Web Pages](https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/) | Translate your page in real time using Google or Yandex. |
+			| [User-Agent Switcher and Manager](https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher/) | Spoof websites trying to gather information about your web navigation—like your browser type and operating system—to deliver distinct content you may not want. |
+			| [HTTP Header Live](https://addons.mozilla.org/en-US/firefox/addon/http-header-live) | Displays the HTTP header. Edit it and send it. |
+			| [Cookie-Editor](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/) | Cookie-Editor lets you efficiently create, edit and delete a cookie for the current tab. Perfect for developing, quickly testing or even manually managing your cookies for your privacy. |
+			| [TempMail](https://addons.mozilla.org/en-US/firefox/addon/temp-mail/) | Temporary disposable email address. Protect your email from spam, bots and phishing with Temp-Mail. |
+			| [FoxyProxy](https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/) | FoxyProxy is an advanced proxy management tool that completely replaces Firefox's limited proxying capabilities. |
+			| [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) | Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy. |
 
 			</details>
 
@@ -232,7 +243,6 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [lists](https://github.com/hueristiq/lists.git) | A collection of lists for asset and content discovery. |
 
 </details>
-
 
 ## Contribution
 
