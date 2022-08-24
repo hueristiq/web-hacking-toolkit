@@ -211,6 +211,7 @@ Use X11 forwarding through SSH if you want to go this way. Run `start_ssh` insid
 | [interlace](https://github.com/codingo/Interlace) | Easily turn single threaded command line applications into a fast, multi-threaded application with CIDR and glob support. |
 | [joomscan](https://github.com/OWASP/joomscan) | OWASP Joomla Vulnerability Scanner Project |
 | [jq](https://github.com/stedolan/jq) | Command-line JSON processor |
+| [mapcidr](https://github.com/projectdiscovery/mapcidr) | Small utility program to perform multiple operations for a given subnet/CIDR ranges. |
 | [masscan](https://github.com/robertdavidgraham/masscan) | TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes. |
 | [massdns](https://github.com/blechschmidt/massdns) | A high-performance DNS stub resolver. |
 | [naabu](https://github.com/projectdiscovery/naabu) | A fast port scanner written in go with focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests |
